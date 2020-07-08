@@ -24,8 +24,9 @@ public class StoreMemberTest {
    //}
 	@Test
 	public void detailstroemember() {
-		
-		System.out.println(sqlSession.selectOne("stroemember.detailitem", 1));
+	
+	
+		System.out.println(sqlSession.selectOne("stroemember.detailstroemember", 1));
 
 	}
 

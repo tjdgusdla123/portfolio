@@ -31,6 +31,21 @@ public class StoreMemberServiceImpl implements StoreMemberService {
 		request.setAttribute("list", list);
 	}
 
+	@Override
+	public void detailstoremember(HttpServletRequest request, HttpServletResponse response) {
+		//요청 주소의 마지막 부분을 가져오기
+		String requestURI =request.getRequestURI();
+		System.out.println(requestURI);
+		String [] ar =requestURI.split("/");
+		String membernickname =ar[ar.length-1];
+		System.out.println(membernickname);
+		//DAO의 메소드 호출
+		StoreMember storemember = storeMemberDAO.detailstoremember(membernickname);
+		//결과를 저장
+		request.setAttribute("storemember", storemember);
+		System.out.println(storemember);
+	}
+
 	
 				
 	}

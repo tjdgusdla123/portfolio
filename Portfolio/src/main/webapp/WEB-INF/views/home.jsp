@@ -25,7 +25,7 @@
         </tr>
         <c:forEach var="storemember" items="${list}">
         <tr class="record">
-        <td width="80">${storemember.membernickname}</td>
+        <td width="80">${storemember.membernickname}<a href="detail/${storemember.membernickname}">${item.memberemail}</a></td>
        <td width="300">${storemember.memberemail}</td>
         <td width="100">${storemember.memberphonenumber}</td>
         

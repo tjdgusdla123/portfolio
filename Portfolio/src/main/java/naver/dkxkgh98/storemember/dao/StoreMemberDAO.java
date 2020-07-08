@@ -18,4 +18,9 @@ public List<StoreMember>allstoremember(){
 	return sqlSession.selectList("storemember.allstoremember");
 	
 }
+    public StoreMember detailstoremember(String membernickname) {	
+    	
+    	return sqlSession.selectOne("storemember.detailstoremember",membernickname);
+    	
+    }
 }
