@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 복사해서 사용하자 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="storemember">
+  <!-- Item 테이블의 데이터를 전부 가져오는 SQL -->
+  <select id="allstoremember" resultType="naver.dkxkgh98.storemember.domain.StoreMember">
+   select membernickname, memberemail,memberphonenumber
+   from storemembertbl
+  </select>
+  
+  <select id="detailstoremember" parameterType="java.lang.String" 
+  resultType="naver.dkxkgh98.storemember.domain.StoreMember">  
+  select membernickname,memberemail,memberpassword,memberphonenumber,memberislogin,memberlastlogindate,memberisremove
+  from storemembertbl
+  where storemembertbl = #{membernickname}
+  </select>
+  
+  </mapper>
+  
+ 
