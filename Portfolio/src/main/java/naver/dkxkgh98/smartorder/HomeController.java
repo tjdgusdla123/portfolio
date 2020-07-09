@@ -1,4 +1,4 @@
-package naver.dkxkgh98.storemember;
+package naver.dkxkgh98.smartorder;
 
 import java.text.DateFormat;
 import java.util.Date;

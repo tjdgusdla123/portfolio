@@ -1,4 +1,4 @@
-package naver.dkxkgh98.storemember.domain;
+package naver.dkxkgh98.smartorder.domain;
 
 import java.util.Date;
 
@@ -12,6 +12,7 @@ public class StoreMember {
 	private String memberislogin;  //회원로그인여부
 	private Date memberlastlogindate;  //회원마지막로그인날짜
 	private String memberisremove ; //회원탈퇴여부
+	
 	public StoreMember() {
 		super();
 		// TODO Auto-generated constructor stub

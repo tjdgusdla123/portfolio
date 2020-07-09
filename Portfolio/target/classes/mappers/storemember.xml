@@ -4,20 +4,29 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-  <mapper namespace="storemember">
-  <!-- Item 테이블의 데이터를 전부 가져오는 SQL -->
-  <select id="allstoremember" resultType="naver.dkxkgh98.storemember.domain.StoreMember">
-   select membernickname, memberemail,memberphonenumber
-   from storemembertbl
-  </select>
-  
-  <select id="detailstoremember" parameterType="java.lang.String" 
-  resultType="naver.dkxkgh98.storemember.domain.StoreMember">  
-  select membernickname,memberemail,memberpassword,memberphonenumber,memberislogin,memberlastlogindate,memberisremove
-  from storemembertbl
-  where storemembertbl = #{membernickname}
-  </select>
-  
-  </mapper>
+<mapper namespace="storemember">
+	<!-- storemembertbl 테이블의 데이터를 전부 가져오는 SQL -->
+	<select id="allstoremember"
+		resultType="naver.dkxkgh98.smartorder.domain.StoreMember">
+		select membernickname, memberemail,memberphonenumber
+		from storemembertbl
+	</select>
+
+	<!--storemembertbl 상세보기를 -->
+	<select id="detailstoremember" parameterType="java.lang.String"
+		resultType="naver.dkxkgh98.smartorder.domain.StoreMember">
+		select
+		membernickname,memberemail,memberpassword,memberphonenumber,memberislogin,memberlastlogindate,memberisremove
+		from storemembertbl
+		where membernickname=#{membernickname}
+	</select>
+
+	<!--  storemembertbl 테이블에 데이터를 삽입하는 SQL 
+	<insert id="insertstoremember" parameterType="mybatis.domain.Good">
+		insert into storemembertbl(membernickname, memberemail, memberpassword,memberphonenumber,memberislogin,memberlastlogindate,memberisremove)
+		values(#{storemembertbl}, #{membernickname}, #{regdmemberemailate},#{memberpassword},#{memberphonenumber},#{memberislogin},#{memberlastlogindate},#{memberisremove})
+	</insert>
+-->
+</mapper>
   
  

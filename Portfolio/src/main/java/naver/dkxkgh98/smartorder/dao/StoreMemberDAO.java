@@ -1,4 +1,4 @@
-package naver.dkxkgh98.storemember.dao;
+package naver.dkxkgh98.smartorder.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import naver.dkxkgh98.storemember.domain.StoreMember;
+import naver.dkxkgh98.smartorder.domain.StoreMember;
 
 @Repository
 public class StoreMemberDAO {
@@ -18,9 +18,12 @@ public List<StoreMember>allstoremember(){
 	return sqlSession.selectList("storemember.allstoremember");
 	
 }
-    public StoreMember detailstoremember(String membernickname) {	
-    	
+    public StoreMember detailstoremember(String membernickname) {	    	                                        
+    	System.out.println("DAO닉네임"+membernickname);
     	return sqlSession.selectOne("storemember.detailstoremember",membernickname);
     	
     }
+	
+	
+	 
 }

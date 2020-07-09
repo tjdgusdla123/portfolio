@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!-- jsp를 이용해서 데이터를 출력할 때는 이 코드는 거의 필수 -->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +42,7 @@
 							<tr height="50">
 							<td width="80">회원탈퇴 여부</td>
 							<td width="160">${storemember.memberisremove}</td>
-						</tr>
+						</tr> 
 						<tr>
 							<td colspan="2" align="center" width="240"><a
 								href="${pageContext.request.contextPath}/"> ■목록으로 돌아가기 </a></td>

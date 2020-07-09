@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
-	<!-- 애플리케이션이 시작될 때나 종료될 때 또는 세션이 만들어질 때 세션이 소멸 될 때 등의
-	 이벤트가 발생하면 호출되는 객체의 클래스를 설정하는 태그가 listener -->
+	<!-- 애플리케이션이 시작될 때나 종료될 때 또는 세션이 만들어질 때 세션이 소멸 될 때 등의 이벤트가 발생하면 호출되는 객체의 
+		클래스를 설정하는 태그가 listener -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -28,10 +29,10 @@
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
-		<!--  /는 .jsp를 제외한 모든 요청에 응답 -->
+		<!-- /는 .jsp를 제외한 모든 요청에 응답 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	<!-- 한글 처리 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

@@ -25,7 +25,7 @@
         </tr>
         <c:forEach var="storemember" items="${list}">
         <tr class="record">
-        <td width="80">${storemember.membernickname}<a href="detail/${storemember.membernickname}">${item.memberemail}</a></td>
+        <td width="80"><a href="detail/${storemember.membernickname}">${storemember.membernickname}</a></td>
        <td width="300">${storemember.memberemail}</td>
         <td width="100">${storemember.memberphonenumber}</td>
         
@@ -37,7 +37,10 @@
        </table>
        <ul>
 		   <li>
-	        	<a href="fileview" class="list">파일 목록 보기</a>
+	        	<a href=insert class="list">회원가입</a>
+	        	<a href=login class="list">로그인</a>
+	        	<a href=Nonmembers class="list">비회원</a>
+	        
 		   </li>
 		</ul>
        </div>

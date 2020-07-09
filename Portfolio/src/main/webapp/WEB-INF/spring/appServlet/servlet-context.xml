@@ -22,7 +22,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="naver.dkxkgh98.storemember" />
+	<context:component-scan base-package="naver.dkxkgh98.smartorder" />
 	
 	
 	
