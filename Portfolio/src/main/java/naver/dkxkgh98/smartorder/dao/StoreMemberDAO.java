@@ -23,7 +23,22 @@ public List<StoreMember>allstoremember(){
     	return sqlSession.selectOne("storemember.detailstoremember",membernickname);
     	
     }
+    
+    //이메일 중복 체크 메소드
+    public List<String> memberemailCheck() {
+		return sqlSession.selectList("storemember.memberemailcheck");
+    	
+    }
 	
+    //닉네임 중복 체크 메소드
+    public String membernicknameCheck(String membernickname) {
+		return sqlSession.selectOne("storemember.membernicknamecheck",membernickname);
+    	
+    }
 	
-	 
+	 //회원가입 처리 메소드
+    public int join(StoreMember storeMember) {
+		return sqlSession.insert("storemember.join",storeMember);
+    	
+    }
 }

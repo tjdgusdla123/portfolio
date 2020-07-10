@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상세보기</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/style.css">
 </head>
 <body>
 	<div align="center" class=body>
