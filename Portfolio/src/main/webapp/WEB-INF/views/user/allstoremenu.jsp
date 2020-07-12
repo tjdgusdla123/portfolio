@@ -27,7 +27,7 @@
             <td width="300"><a href="allmenudetail ${storemenu.menuname}">${storemenu.menuname}</td>
         <td width="80">${storemenu.menuprice}</td>
        
-       <a href="${pageContext.request.contextPath}/"> ■목록으로 돌아가기
+       <a href="${pageContext.request.contextPath}/" class="menu" > 이전
        
        
         </tr>

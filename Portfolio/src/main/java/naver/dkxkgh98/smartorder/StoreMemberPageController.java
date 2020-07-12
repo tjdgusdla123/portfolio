@@ -43,10 +43,10 @@ public class StoreMemberPageController {
 		return "user/nonmember";
 		
 	}
-	@RequestMapping(value ="user/allmenu", method = RequestMethod.GET)
-	public String allmenu() {
+	@RequestMapping(value ="user/allstoremenu", method = RequestMethod.GET)
+	public String allstoremenu() {
 		System.out.println("페이지controller도착-전체메뉴");
-		return "user/allmenu";
+		return "user/allstoremenu";
 		
 	}
 }

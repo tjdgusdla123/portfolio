@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>상세보기</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/allmenu.css">
 </head>
 <body>
 	<div align="center" class=body>
@@ -14,6 +14,7 @@
 		<table border="1">
 			<tr class="header">			
 				<td>
+				<img src="${pageContext.request.contextPath}/img/${storemenu.menuphoto}"/>
 					<table>
 						<tr height="50">
 							<td width="80">메뉴코드</td>
@@ -39,8 +40,8 @@
 							<td width="80">메뉴구분</td>
 							<td width="160">${storemenu.menusection}</td>						
 						<tr>
-							<td colspan="2" align="center" width="240"><a
-								href="${pageContext.request.contextPath}/" class="menu"> ■목록으로 돌아가기 </a></td>
+							<td colspan="2" align="center" width="240">
+							<a href="${pageContext.request.contextPath}/" class="menu">전체 목록돌아가기 </a></td>
 						</tr>
 					</table>
 				</td>

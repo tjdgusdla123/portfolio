@@ -40,5 +40,12 @@ public class StoreMemberRestController {
 		return map;
 		
 	}
+	@RequestMapping(value = {"detailstoremenu/{menuname}"}, method = RequestMethod.GET)
+     public String detailstoremenu(HttpServletRequest request, HttpServletResponse response) {
+			//서비스의 메소드를 호출
+		storeMenuService.detailstoremenu(request, response);
+			return "detailstoremenu";
+
+			}
     
 }

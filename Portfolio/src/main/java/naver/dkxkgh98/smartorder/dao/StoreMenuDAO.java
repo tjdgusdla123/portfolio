@@ -18,5 +18,8 @@ public List<StoreMenu> allstoremenu(){
 	return sqlSession.selectList("StoreMenu.allstoremenu");
 	
 }
+public StoreMenu detailstoremenu(String menuname) {
+return sqlSession.selectOne("storemenu.detailstoremenu", menuname);
+}
 
 }

@@ -1,5 +1,7 @@
 package naver.dkxkgh98.smartorder.service;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +31,26 @@ public void allstoremenu(HttpServletRequest request, HttpServletResponse respons
 	request.setAttribute("list", list);
 
 	}
+
+@Override
+public void detailstoremenu(HttpServletRequest request, HttpServletResponse response) {
+	//요청 주소의 마지막 부분을 가져오기
+	//localhost/detailstoremenu/menucode
+	String requestURI = request.getRequestURI();
+	String [] ar = requestURI.split("/");
+	String menuname = ar[ar.length-1];	
+	try {
+		menuname = URLDecoder.decode(menuname, "utf-8");
+	} catch (UnsupportedEncodingException e) {
+		e.printStackTrace();
+	}
+	System.out.println("serviceImpl.detailstoremenu menuname변수:" + menuname);
+	//DAO의 메소드를 호출
+	StoreMenu storeMenu = storeMenuDAO.detailstoremenu(menuname);
+	//결과를 저장
+	request.setAttribute("menuname", menuname);
+	System.out.println(menuname);
+}
 	
 }
 	
