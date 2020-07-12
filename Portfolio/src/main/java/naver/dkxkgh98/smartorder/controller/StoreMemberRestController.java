@@ -12,12 +12,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import naver.dkxkgh98.smartorder.service.StoreMemberService;
+import naver.dkxkgh98.smartorder.service.StoreMenuService;
 
 @RestController
 public class StoreMemberRestController {
 
 	@Autowired
 	private StoreMemberService storeMemberService;
+	@Autowired
+	private StoreMenuService storeMenuService;
 
 	// Controller 클래스에 상세보기를 위한 메소드를 구현
 	@RequestMapping(value = { "detail/{membernickname}" }, method = RequestMethod.GET)

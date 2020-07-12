@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/join.css">
 <script src= "${pageContext.request.contextPath}/user/js/join.js"></script>
 
@@ -18,7 +17,7 @@
 		<ul>
 			<li>
 				<label for="memberemail">이메일</label> 
-				<input type="text" id="memberemail" name="memberemail" class="textinput" placeholder="이메일 주소를 입력하세요" />
+				<input type="email" id="memberemail" name="memberemail" class="textinput" placeholder="이메일 주소를 입력하세요" />
 			</li>
 			<div id="memberemailmsg"></div>
 			<li>
