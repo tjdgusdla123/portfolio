@@ -73,30 +73,36 @@ public class StoreMemberServiceImpl implements StoreMemberService {
 		String memberemail = request.getParameter("memberemail");
 		String membernickname = request.getParameter("membernickname");
 		String memberpassword = request.getParameter("memberpassword");
-
+		String memberphonenumber = request.getParameter("memberphonenumber");
 		// 파일은 읽는 방법이 다름(회원정보에는 파일 첨부가 없기 때문에 주석처리함)
 		// MultipartFile mf =request.getFile(image);
 
-		// memberemail 중복검사
-		String memberemailResult = null;
-		// 암호화 되어 있기 때문에 전체 이메일을 가져와서
-		// 복호화 하면서 비교
-		List<String> memberemaillist = storeMemberDAO.memberemailCheck();
-		try {
-			for (String imsi : memberemaillist) {
-				if (CryptoUtil.decryptAES256(imsi, "tjdgusdla123").equals(memberemail)) {
-					memberemailResult = memberemail;
-					break;
-				}
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
+//		// memberemail 중복검사
+//		String memberemailResult = null;
+//		// 암호화 되어 있기 때문에 전체 이메일을 가져와서
+//		// 복호화 하면서 비교
+//		List<String> memberemaillist = storeMemberDAO.memberemailCheck();
+//		try {
+//			for (String imsi : memberemaillist) {
+//				if (CryptoUtil.decryptAES256(imsi, "tjdgusdla123").equals(memberemail)) {
+//					memberemailResult = memberemail;
+//					break;
+//				}
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//		}
+		
+		// memberemail 중복 검사 수행
+		String memberemailResult = storeMemberDAO.memberemailCheck(memberemail);
+		if (memberemailResult == null) {
+			map.put("memberemailcheck", true);
 		}
 		// membernickname 중복 검사 수행
 		String membernicknameResult = storeMemberDAO.membernicknameCheck(membernickname);
 		if (membernicknameResult == null) {
-			map.put("memberemailcheck", true);
+			map.put("membernicknamecheck", true);
 		}
 		// memberemail 중복검사와 membernickname중복 검사를 통과한 경우에만 데이터 삽입
 		if (memberemailResult == null && membernicknameResult == null) {
@@ -120,9 +126,11 @@ public class StoreMemberServiceImpl implements StoreMemberService {
 		StoreMember storeMember = new StoreMember();
 		try {
 			// memberemail 암호화 해서 저장
-			storeMember.setMemberemail(CryptoUtil.encryptAES256(memberemail, key));
+			storeMember.setMemberemail(memberemail);
+			//storeMember.setMemberemail(CryptoUtil.encryptAES256(memberemail, key));
 			storeMember.setMemberpassword(BCrypt.hashpw(memberpassword, BCrypt.gensalt()));
 			storeMember.setMembernickname(membernickname);
+			storeMember.setMemberphonenumber(memberphonenumber);
 			// storeMember.setImage(image);(첨부파일없음 파일있다면 주석처리한 부분을 사용하면된다)
 
 			// 데이터베이스 저장

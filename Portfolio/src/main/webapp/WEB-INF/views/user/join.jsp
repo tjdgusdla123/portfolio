@@ -37,7 +37,7 @@
 			<li>
 				<label for="membernickname">닉네임</label> 
 				<input type="text" id="membernickname" name="membernickname" class="textinput" placeholder="닉네임을입력하세요" />
-				<button >중복확인</button><br/>
+				
 			</li>
 			<div id="membernicknamemsg"></div>
 						<li class="buttons">

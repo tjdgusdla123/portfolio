@@ -9,9 +9,9 @@
 	<!-- DataSource bean 생성 코드 데이터베이스 접속 정보를 저장하는 bean을 생성 데이터베이스 종류 별로 다르게 설정(Oracle)-->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@192.168.0.200:1521:xe"/>
-		<property name="username" value="user10"/>	
-		<property name="password" value="user10"/>	
+		<property name="url" value="jdbc:oracle:thin:@192.168.0.76:1521:xe"/>
+		<property name="username" value="user06"/>	
+		<property name="password" value="user06"/>	
 	</bean>
 	
 	<!-- XML을 이용한 MyBatis 사용 설정 -->

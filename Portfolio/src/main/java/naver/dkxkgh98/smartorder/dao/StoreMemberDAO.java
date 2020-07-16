@@ -25,11 +25,16 @@ public List<StoreMember>allstoremember(){
     }
     
     //이메일 중복 체크 메소드
-    public List<String> memberemailCheck() {
-		return sqlSession.selectList("storemember.memberemailcheck");
+//    public List<String> memberemailCheck() {
+//		return sqlSession.selectList("storemember.memberemailcheck");
+//    	
+//    }
+    //이메일 중복 체크 메소드
+    public String memberemailCheck(String memberemail) {
+		return sqlSession.selectOne("storemember.memberemailcheck",memberemail);
     	
     }
-	
+    
     //닉네임 중복 체크 메소드
     public String membernicknameCheck(String membernickname) {
 		return sqlSession.selectOne("storemember.membernicknamecheck",membernickname);
