@@ -27,8 +27,11 @@ public void allstoremenu(HttpServletRequest request, HttpServletResponse respons
 	List<StoreMenu> list = storeMenuDAO.allstoremenu();
 	//5.결과를 가공	​
 	//6.결과를 저장 - REST API Server의 경우는 request에 저장
+	
+	
 
 	request.setAttribute("list", list);
+	System.out.println(list);
 
 	}
 
@@ -38,18 +41,14 @@ public void detailstoremenu(HttpServletRequest request, HttpServletResponse resp
 	//localhost/detailstoremenu/menucode
 	String requestURI = request.getRequestURI();
 	String [] ar = requestURI.split("/");
-	String menuname = ar[ar.length-1];	
-	try {
-		menuname = URLDecoder.decode(menuname, "utf-8");
-	} catch (UnsupportedEncodingException e) {
-		e.printStackTrace();
-	}
-	System.out.println("serviceImpl.detailstoremenu menuname변수:" + menuname);
+	String menucode = ar[ar.length-1];	
+	
+	System.out.println("serviceImpl.detailstoremenu menuname변수:" + menucode);
 	//DAO의 메소드를 호출
-	StoreMenu storeMenu = storeMenuDAO.detailstoremenu(menuname);
+	StoreMenu storeMenu = storeMenuDAO.detailstoremenu(menucode);
 	//결과를 저장
-	request.setAttribute("menuname", menuname);
-	System.out.println(menuname);
+	request.setAttribute("menucode", menucode);
+	System.out.println(menucode);
 }
 	
 }

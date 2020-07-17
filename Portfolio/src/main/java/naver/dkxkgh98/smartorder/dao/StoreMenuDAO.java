@@ -15,11 +15,11 @@ public class StoreMenuDAO {
 private SqlSession sqlSession;
 
 public List<StoreMenu> allstoremenu(){
-	return sqlSession.selectList("StoreMenu.allstoremenu");
+	return sqlSession.selectList("storemenu.allstoremenu");
 	
 }
-public StoreMenu detailstoremenu(String menuname) {
-return sqlSession.selectOne("storemenu.detailstoremenu", menuname);
+public StoreMenu detailstoremenu(String menucode) {
+return sqlSession.selectOne("storemenu.detailstoremenu", menucode);
 }
 
 }

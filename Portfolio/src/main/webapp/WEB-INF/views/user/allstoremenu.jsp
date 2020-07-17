@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center" class="body">
-         <h1>털보식당</h1>
+         <h1>김밥지</h1>
 		<h2>전체메뉴</h2>
 		<table border="1">
 			<tr class="header">
@@ -23,8 +23,8 @@
 			<c:forEach var="storemenu" items="${ list}">
             <tr class="record">
              <td width="70">${storemenu.menusection}</td>
-            <td width="50">${storemenu.menucode}</td> 
-            <td width="300"><a href="allmenudetail ${storemenu.menuname}">${storemenu.menuname}</td>
+            <td width="50">${storemenu.menuname}</td> 
+            <td width="300"><a href="allmenudetail ${storemenu.menucode}">${storemenu.menucode}</td>
         <td width="80">${storemenu.menuprice}</td>
        
        <a href="${pageContext.request.contextPath}/" class="menu" > 이전

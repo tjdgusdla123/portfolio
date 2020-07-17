@@ -17,7 +17,7 @@
 		resultType="naver.dkxkgh98.smartorder.domain.StoreMenu">
 		select menucode,menuname,menuprice,menuinfo,menuphoto,menusection, 
 		from storemenutbl
-		where menuname=#{menuname}
+		where menucode=#{menucode}
 	</select>
 
  </mapper>

@@ -23,12 +23,12 @@ public class StoreMemberRestController {
 	private StoreMenuService storeMenuService;
 
 	// Controller 클래스에 상세보기를 위한 메소드를 구현
-	@RequestMapping(value = { "detail/{membernickname}" }, method = RequestMethod.GET)
-	public String detail(HttpServletRequest request, HttpServletResponse response) {
+	@RequestMapping(value = { "allstoremenu/{menucode}" }, method = RequestMethod.GET)
+	public String allstoremenu(HttpServletRequest request, HttpServletResponse response) {
 		// 서비스의 메소드를 호출
 		System.out.println("컨트롤 디테일 도착");
-		storeMemberService.detailstoremember(request, response);
-		return "detail";
+		storeMenuService.allstoremenu(request, response);
+		return "allstoremenu";
 
 	}
 	//회원가입을 처리하는 메소드
@@ -44,6 +44,7 @@ public class StoreMemberRestController {
      public String detailstoremenu(HttpServletRequest request, HttpServletResponse response) {
 			//서비스의 메소드를 호출
 		storeMenuService.detailstoremenu(request, response);
+		System.out.println(request);
 			return "detailstoremenu";
 
 			}
