@@ -14,12 +14,16 @@ public class StoreMenuDAO {
 //MyBatis를 xml로 이용할 때 사용하는 클래스
 private SqlSession sqlSession;
 
+//전체데이터 가져오
 public List<StoreMenu> allstoremenu(){
+	System.out.println(sqlSession);
 	return sqlSession.selectList("storemenu.allstoremenu");
 	
 }
 public StoreMenu detailstoremenu(String menucode) {
+System.out.println("상세보기 dao : "+menucode);
 return sqlSession.selectOne("storemenu.detailstoremenu", menucode);
+
 }
 
 }

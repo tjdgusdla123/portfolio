@@ -26,7 +26,8 @@ window.addEventListener("load", function(event){
 		});
 		
 		 allmenubtn.addEventListener("click", function(event){
-		location.href="allstoremenu";
-		});
+	  location.href="allstoremenu";
+		});            
 		 
  	});
+ 	

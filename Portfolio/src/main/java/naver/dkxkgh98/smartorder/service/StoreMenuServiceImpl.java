@@ -28,8 +28,6 @@ public void allstoremenu(HttpServletRequest request, HttpServletResponse respons
 	//5.결과를 가공	​
 	//6.결과를 저장 - REST API Server의 경우는 request에 저장
 	
-	
-
 	request.setAttribute("list", list);
 	System.out.println(list);
 
@@ -41,14 +39,14 @@ public void detailstoremenu(HttpServletRequest request, HttpServletResponse resp
 	//localhost/detailstoremenu/menucode
 	String requestURI = request.getRequestURI();
 	String [] ar = requestURI.split("/");
-	String menucode = ar[ar.length-1];	
+	String menucode = ar[ar.length - 1];	
 	
 	System.out.println("serviceImpl.detailstoremenu menuname변수:" + menucode);
 	//DAO의 메소드를 호출
-	StoreMenu storeMenu = storeMenuDAO.detailstoremenu(menucode);
+	StoreMenu storemenu = storeMenuDAO.detailstoremenu(menucode);
 	//결과를 저장
-	request.setAttribute("menucode", menucode);
-	System.out.println(menucode);
+	request.setAttribute("storemenu", storemenu);
+	System.out.println("serviceImpl.detailstoremenu menuname변수:"+menucode);
 }
 	
 }

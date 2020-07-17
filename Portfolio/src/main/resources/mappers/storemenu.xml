@@ -15,9 +15,10 @@
 	<!--storemembertbl 상세보기를 -->
 	<select id="detailstoremenu" parameterType="java.lang.String"
 		resultType="naver.dkxkgh98.smartorder.domain.StoreMenu">
-		select menucode,menuname,menuprice,menuinfo,menuphoto,menusection, 
+		select menucode,menuname,menuinfo,menuprice,menuphoto,menusection,storenickname 
 		from storemenutbl
 		where menucode=#{menucode}
+	
 	</select>
 
  </mapper>

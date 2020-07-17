@@ -14,9 +14,16 @@
 		<table border="1">
 			<tr class="header">			
 				<td>
-				<img src="${pageContext.request.contextPath}/img/${storemenu.menuphoto}"/>
+				<img src="${pageContext.request.contextPath}img/${storemenu.menuphoto}"/>
 					<table>
+						
+						</tr>
+							<tr height="50">
+							<td width="80">메뉴구분</td>
+							<td width="160">${storemenu.storenickname}</td>						
+						<tr>
 						<tr height="50">
+						
 							<td width="80">메뉴코드</td>
 							<td width="160">${storemenu.menucode}</td>
 						</tr>

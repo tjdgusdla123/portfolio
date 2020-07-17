@@ -44,6 +44,7 @@ public class StoreMemberTest {
 			System.out.println("Test connectTest:"+dataSource.getConnection());
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
+			
 			e.printStackTrace();
 		}
 	}
