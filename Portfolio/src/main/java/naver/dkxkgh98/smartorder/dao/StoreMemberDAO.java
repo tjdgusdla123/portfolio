@@ -31,7 +31,9 @@ public List<StoreMember>allstoremember(){
 //    }
     //이메일 중복 체크 메소드
     public String memberemailCheck(String memberemail) {
-		return sqlSession.selectOne("storemember.memberemailcheck",memberemail);
+    	System.out.println(memberemail);
+    	return sqlSession.selectOne("storemember.memberemailcheck",memberemail);
+		
     	
     }
     
@@ -43,6 +45,7 @@ public List<StoreMember>allstoremember(){
 	
 	 //회원가입 처리 메소드
     public int join(StoreMember storeMember) {
+    	System.out.println(storeMember);
 		return sqlSession.insert("storemember.join",storeMember);
     	
     }

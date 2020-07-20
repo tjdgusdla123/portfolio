@@ -40,7 +40,8 @@ public void detailstoremenu(HttpServletRequest request, HttpServletResponse resp
 	String requestURI = request.getRequestURI();
 	String [] ar = requestURI.split("/");
 	String menucode = ar[ar.length - 1];	
-	
+	System.out.println("serviceImpl.detailstoremenu requestURI:" + requestURI);
+	System.out.println("serviceImpl.detailstoremenu ar:" + ar);
 	System.out.println("serviceImpl.detailstoremenu menuname변수:" + menucode);
 	//DAO의 메소드를 호출
 	StoreMenu storemenu = storeMenuDAO.detailstoremenu(menucode);

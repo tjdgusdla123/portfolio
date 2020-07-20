@@ -14,12 +14,12 @@
 		<table border="1">
 			<tr class="header">			
 				<td>
-				<img src="${pageContext.request.contextPath}img/${storemenu.menuphoto}"/>
+				<img src="${pageContext.request.contextPath}/img/${storemenu.menuphoto}"/>
 					<table>
 						
 						</tr>
 							<tr height="50">
-							<td width="80">메뉴구분</td>
+							<td width="80">가게닉네임</td>
 							<td width="160">${storemenu.storenickname}</td>						
 						<tr>
 						<tr height="50">
@@ -49,6 +49,8 @@
 						<tr>
 							<td colspan="2" align="center" width="240">
 							<a href="${pageContext.request.contextPath}/" class="menu">전체 목록돌아가기 </a></td>
+						
+							
 						</tr>
 					</table>
 				</td>

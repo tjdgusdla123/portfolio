@@ -16,12 +16,12 @@ private SqlSession sqlSession;
 
 //전체데이터 가져오
 public List<StoreMenu> allstoremenu(){
-	System.out.println(sqlSession);
+	System.out.println("dao 전체데이터 가져오기 "+sqlSession);
 	return sqlSession.selectList("storemenu.allstoremenu");
 	
 }
 public StoreMenu detailstoremenu(String menucode) {
-System.out.println("상세보기 dao : "+menucode);
+	System.out.println("상세보기 dao : "+menucode);
 return sqlSession.selectOne("storemenu.detailstoremenu", menucode);
 
 }
