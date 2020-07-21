@@ -49,4 +49,10 @@ public List<StoreMember>allstoremember(){
 		return sqlSession.insert("storemember.join",storeMember);
     	
     }
+    //로그인 처리 메소드
+    public List<StoreMember>login(){
+    	return sqlSession.selectList("storemember.login");
+    	
+    }
+    
 }

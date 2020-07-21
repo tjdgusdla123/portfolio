@@ -22,6 +22,10 @@ public interface StoreMemberService {
 
 	//회원가입을 처리해주는 메소드(데이터삽입)
 	public  Map<String,Object> join(HttpServletRequest request, HttpServletResponse response);
+	
+	//로그인을 처리해주는 메소드
+	public  Map<String,Object> login(HttpServletRequest request, HttpServletResponse response);
+	
 	 
 }
 

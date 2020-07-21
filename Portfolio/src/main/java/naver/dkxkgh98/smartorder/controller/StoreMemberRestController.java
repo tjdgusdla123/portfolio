@@ -32,4 +32,9 @@ public class StoreMemberRestController {
 		return map;
 		
 	}
+	@RequestMapping(value="user/login", method=RequestMethod.POST)
+	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
+		Map<String, Object> result =  storeMemberService.login(request, response);
+		return result;
+	}
 }
