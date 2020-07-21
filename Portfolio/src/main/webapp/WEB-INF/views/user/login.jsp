@@ -36,6 +36,7 @@
 						</div>
 					</div>
 					<div class="login_append" align="center">
+					     
 						<a href="" class="link_find">아이디 찾기</a> 
 						<a href="" class="link_find">비밀번호 찾기</a> 
 						<input type="button" value="회원가입"  id="joinbtn"/> 

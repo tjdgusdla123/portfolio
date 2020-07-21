@@ -5,6 +5,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="storemember">
+    <!-- 로그인 처리를 위한 sql -->
+     <select id="login" resultType="naver.dkxkgh98.smartorder.domain.StoreMember" parameterType="naver.dkxkgh98.smartorder.domain.StoreMember">
+      select  membernickname,memberpassword 
+      from storemembertbl
+      where id=#{email}
+      </select>   
+    
+
+
 	<!--   email에 해당하는 데이터 찾아오기
      <select id="memberemailcheck"  resultType="java.lang.String">
     select memberemail
