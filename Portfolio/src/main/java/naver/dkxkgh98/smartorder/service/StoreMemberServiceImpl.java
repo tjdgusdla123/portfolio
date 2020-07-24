@@ -148,31 +148,22 @@ public class StoreMemberServiceImpl implements StoreMemberService {
 
 	@Override
 	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
-		Map<String, Object> result = new HashMap<String, Object>();
+		Map<String,Object> result = new HashMap<String,Object>();
 		result.put("result", false);
-		String membernickname = request.getParameter("membernickname");
-		String memberpassoword = request.getParameter("memberpassoword");
+		//파라미터읽기
+		String membernickname =request.getParameter("membernickname");
+		String memberpassword = request.getParameter("memberpassword");
 		
-		List<StoreMember> list = storeMemberDAO.login();
+		System.out.println("StoreMemberServiceImpl.login.membernickname 파라미터확인 : " + membernickname);
+		System.out.println("StoreMemberServiceImpl.login.memberpassword 파라미터확인 : " + memberpassword);
 		
-
-		try {
-			for(StoreMember user : list) {
-				if(user.getMembernickname().equals(membernickname)  && BCrypt.checkpw(memberpassoword, user.getMemberpassword())) {
-					result.put("result", true);
-					result.put("membernickname", membernickname);
-				
-					break;
-				}
-			}
-			}catch(Exception e) {
-				System.out.println(e.getMessage());
-			}
-			request.getSession().setAttribute("userinfo", result);		
-			return result;
-		}
+		StoreMember storeMember = storeMemberDAO.login(membernickname);
+		System.out.println("StoreMemberServiceImpl.login.storeMember 파라미터확인 : " + storeMember);
 		
+		return null;
 	}
+
 	
 
+}
 

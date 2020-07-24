@@ -50,8 +50,8 @@ public List<StoreMember>allstoremember(){
     	
     }
     //로그인 처리 메소드
-    public List<StoreMember>login(){
-    	return sqlSession.selectList("storemember.login");
+    public StoreMember login(String membernickname){
+    	return sqlSession.selectOne("storemember.login",membernickname);
     	
     }
     

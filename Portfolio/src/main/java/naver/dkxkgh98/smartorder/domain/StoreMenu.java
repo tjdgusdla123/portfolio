@@ -1,5 +1,4 @@
 package naver.dkxkgh98.smartorder.domain;
-
 public class StoreMenu {
     private String menucode;   // 메뉴코드
     private String menuname ;    // 메뉴명

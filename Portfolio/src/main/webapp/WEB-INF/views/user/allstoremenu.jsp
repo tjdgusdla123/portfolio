@@ -32,6 +32,7 @@
               <td width="50">${storemenu.menucode}</td>
             <td width="50"><a href="detailstoremenu/${storemenu.menucode}">${storemenu.menuname}</td>                 
             <td width="80">${storemenu.menuprice}원</td>
+             
              <a href="${pageContext.request.contextPath}/" class="menu" > 이전      
         </tr>
         </c:forEach>

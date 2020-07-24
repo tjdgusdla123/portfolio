@@ -5,6 +5,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import naver.dkxkgh98.smartorder.domain.StoreMember;
+
 public interface StoreMemberService {
 	//메소드의 원형은 public Map<String,Object>이름
 	//(HttpServletRequest request, HttpServletResponse response)
@@ -23,9 +25,9 @@ public interface StoreMemberService {
 	//회원가입을 처리해주는 메소드(데이터삽입)
 	public  Map<String,Object> join(HttpServletRequest request, HttpServletResponse response);
 	
-	//로그인을 처리해주는 메소드
-	public  Map<String,Object> login(HttpServletRequest request, HttpServletResponse response);
-	
+	//로그인을 위한 메소드
+	public Map<String,Object>login(HttpServletRequest request, HttpServletResponse response);
+
 	 
 }
 

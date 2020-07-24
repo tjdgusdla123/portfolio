@@ -6,14 +6,13 @@
 
 <mapper namespace="storemember">
     <!-- 로그인 처리를 위한 sql -->
-     <select id="login" resultType="naver.dkxkgh98.smartorder.domain.StoreMember">
-      select  membernickname,memberpassword 
+     <select id="login" resultType="naver.dkxkgh98.smartorder.domain.StoreMember" parameterType="java.lang.String">
+      select  membernickname,memberpassword,memberemail,memberphonenumber,
       from storemembertbl
-      
+      where membernickname=#{membernickname}
+          
       </select>   
     
-
-
 	<!--   email에 해당하는 데이터 찾아오기
      <select id="memberemailcheck"  resultType="java.lang.String">
     select memberemail

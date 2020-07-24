@@ -5,7 +5,9 @@
 	version="3.1">
 
 	<!-- 애플리케이션이 시작될 때나 종료될 때 또는 세션이 만들어질 때 세션이 소멸 될 때 등의 이벤트가 발생하면 호출되는 객체의 
-		클래스를 설정하는 태그가 listener -->
+		클래스를 설정하는 태그가 listener 
+		 웹 애플리케이션이 시작될 때 수행할 내용을 가지는 파일에 경로 설정 - 이 파일에 모든 곳에서 사용할 bean을 생성 웹 
+		애플리케이션의 시작과 종료, 세션의 생성과 종료에 관련된 리스너가 있음 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>

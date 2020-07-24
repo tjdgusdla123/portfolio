@@ -1,5 +1,7 @@
 package naver.dkxkgh98.smartorder.service;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,5 +11,7 @@ public void allstoremenu(HttpServletRequest request, HttpServletResponse respons
 
 //상세보기를 위한 메소드
 public void detailstoremenu(HttpServletRequest request, HttpServletResponse response);
+
+
 
 }
