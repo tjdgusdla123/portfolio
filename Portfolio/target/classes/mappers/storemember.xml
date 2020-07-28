@@ -7,7 +7,7 @@
 <mapper namespace="storemember">
     <!-- 로그인 처리를 위한 sql -->
      <select id="login" resultType="naver.dkxkgh98.smartorder.domain.StoreMember" parameterType="java.lang.String">
-      select  membernickname,memberpassword,memberemail,memberphonenumber,
+      select  membernickname,memberpassword,memberemail,memberphonenumber
       from storemembertbl
       where membernickname=#{membernickname}
           

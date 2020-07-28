@@ -3,7 +3,7 @@ window.addEventListener("load", function(event){
 	var loginform = document.getElementById("loginform");
 	var loginbtn = document.getElementById("loginbtn");
 	
-	var memberemail = document.getElementById("memberemail");
+	var membernickname = document.getElementById("membernickname");
 	var memberpassword = document.getElementById("memberpassword");
 	
 	var msg = document.getElementById("msg");
@@ -11,8 +11,8 @@ window.addEventListener("load", function(event){
 	loginbtn.addEventListener("click", function(event){
 		var flag = false;
 		
-		if (memberemail.value.trim().length < 1) {
-			msg.innerHTML = '이메일은 필수 입력입니다.<br/>';
+		if (membernickname.value.trim().length < 1) {
+			msg.innerHTML = '닉네임은 필수 입력입니다.<br/>';
 			flag = true;
 		} 
 		
@@ -30,14 +30,16 @@ window.addEventListener("load", function(event){
 		  request.open("post", url, true);
 		  var formdata = new FormData(loginform);
 		  request.send(formdata);
+		  alert(formdata);
 		  request.addEventListener('load', function(e){
 			 var map = JSON.parse(e.target.responseText);
 			 if(map.result == true){
 			 	location.href = "../";
 			 }else{
-			 	msg.innerHTML = "잘못된 이메일이거나 비밀번호가 틀렸습니다.";
+			 	msg.innerHTML = "잘못된 닉네임이거나  비밀번호가 틀렸습니다.";
 			 }
 		  });
 	});
-});
+	});
+
 	

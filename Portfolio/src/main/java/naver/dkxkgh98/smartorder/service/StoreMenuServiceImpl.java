@@ -29,7 +29,7 @@ public void allstoremenu(HttpServletRequest request, HttpServletResponse respons
 	//6.결과를 저장 - REST API Server의 경우는 request에 저장
 	
 	request.setAttribute("list", list);
-	System.out.println(list);
+	System.out.println("서비Impl-allstoremenu list"+list);
 
 	}
 

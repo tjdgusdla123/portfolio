@@ -21,8 +21,8 @@ user 디렉토리에 login.jsp 파일을 생성하고 작성
 					<legend class="screen_out">로그인</legend>
 					<div class="box_login">
 						<div class="inp_text">
-							<label for="memberemail" class="screen_out">이메일</label>
-							 <input type="email" id="memberemail" name="memberemail" placeholder="이메일을 입력하세요!">
+							<label for="membernickname" class="screen_out">이메일</label>
+							 <input type="text" id="membernickname" name="membernickname" placeholder="닉네임을 입력하새요">
 						</div>
 						<div class="inp_text">
 							<label for="memberpassword" class="screen_out">비밀번호</label> 
@@ -52,6 +52,7 @@ user 디렉토리에 login.jsp 파일을 생성하고 작성
 	</div>
 
 </body>
+<script src="${pageContext.request.contextPath}/user/js/login.js"></script>
 </html>
 
 

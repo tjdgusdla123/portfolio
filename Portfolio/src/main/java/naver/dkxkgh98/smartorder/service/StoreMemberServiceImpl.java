@@ -158,9 +158,23 @@ public class StoreMemberServiceImpl implements StoreMemberService {
 		System.out.println("StoreMemberServiceImpl.login.memberpassword 파라미터확인 : " + memberpassword);
 		
 		StoreMember storeMember = storeMemberDAO.login(membernickname);
+	
 		System.out.println("StoreMemberServiceImpl.login.storeMember 파라미터확인 : " + storeMember);
+		try {
+			if(storeMember.getMembernickname().equals(membernickname)&& BCrypt.checkpw(memberpassword, storeMember.getMemberpassword())) {
+				result.put("result",true);
+				result.put("membernickname",membernickname);
+				result.put("memberpassword",storeMember.getMemberemail());			
+				result.put("storememberphonenumber",storeMember.getMemberphonenumber());
+				
+			}
+		}catch(Exception e) {
+			System.out.println("serviceImpl-login:"+e.getMessage());
+			e.getStackTrace();
+		}
 		
-		return null;
+		request.getSession().setAttribute("storememberinfo", result);
+		return result;
 	}
 
 	
