@@ -29,13 +29,16 @@ window.addEventListener("load", function(event){
 		   var request=new XMLHttpRequest();
 		  request.open("post", url, true);
 		  var formdata = new FormData(loginform);
+		  
 		  request.send(formdata);
-		  alert(formdata);
+		  
 		  request.addEventListener('load', function(e){
 			 var map = JSON.parse(e.target.responseText);
 			 if(map.result == true){
-			 	location.href = "../";
+			 alert("로그인성공");
+			 	location.href = "nonmember";
 			 }else{
+			 alert("로그인실패");
 			 	msg.innerHTML = "잘못된 닉네임이거나  비밀번호가 틀렸습니다.";
 			 }
 		  });
