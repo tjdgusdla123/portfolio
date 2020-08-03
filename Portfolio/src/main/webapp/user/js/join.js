@@ -58,7 +58,7 @@ window.addEventListener("load", function(event){
 		}
 		
 		if (memberpassword.value.trim().length < 1) {
-			memberpasswordmsg.innerHTML += '비밀번호는 필수 입력입니다.<br/>';
+			memberpasswordmsg.innerHTML = '비밀번호는 필수 입력입니다.<br/>';
 			flag = true;
 		} else {
 			var memberpasswordRegExp = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&+=]).*$/;
@@ -67,14 +67,14 @@ window.addEventListener("load", function(event){
 					flag = true;
 			} else {
 				if (memberpassword.value.trim() !== memberpassword1.value.trim()) {
-					memberpasswordmsg.innerHTML += '2개의 비밀번호는 같아야 합니다.<br/>';
+					memberpasswordmsg.innerHTML = '2개의 비밀번호는 같아야 합니다.<br/>';
 					flag = true;
 				}
 			}
 		}
 		
 		if (membernickname.value.trim().length < 1) {
-			membernicknamemsg.innerHTML += '별명은 필수 입력입니다.<br/>';
+			membernicknamemsg.innerHTML = '별명은 필수 입력입니다.<br/>';
 			flag = true;
 		} else {
 			var membernicknameRegExp = /^[a-zA-z가-힣0-9]{2,5}$/;

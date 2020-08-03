@@ -1,5 +1,6 @@
 package naver.dkxkgh98.smartorder.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,8 +22,7 @@ public class StoreMemberRestController {
 
 	@Autowired
 	private StoreMemberService storeMemberService;
-	@Autowired
-	private StoreMenuService storeMenuService;
+
 	//회원가입을 처리하는 메소드
 	@RequestMapping(value="user/join",method=RequestMethod.POST)
 	public Map<String,Object> join(HttpServletRequest request, HttpServletResponse response){
@@ -39,4 +39,5 @@ public class StoreMemberRestController {
 		Map<String, Object> result =  storeMemberService.login(request, response);
 		return result;
 	}
+
 }

@@ -20,5 +20,13 @@
 		where menucode=#{menucode}
 	
 	</select>
+	
+	<select id="getmenu" parameterType="naver.dkxkgh98.smartorder.domain.StoreMenu"
+		resultType="naver.dkxkgh98.smartorder.domain.StoreMenu">
+		select menuname,menuinfo,menuprice
+		from storemenutbl
+		where menusection = #{menuSection} and storenickname = #{storeNickname}
+	
+	</select>
 
  </mapper>

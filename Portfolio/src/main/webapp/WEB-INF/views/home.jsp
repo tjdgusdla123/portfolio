@@ -8,17 +8,12 @@
 <meta charset="UTF-8">
 <title>회원정보</title>
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
+
 </head>
 <body>
-         <h1 style="text-align: center">안녕하세요</h1>
-	<h1 style="text-align: center">스마트 오더입니다.</h1>
-	 <ul>
-		<li><a href="user/join">회원가입</a></li>
 
-		<li><a href="user/login">로그인</a></li>
-		<li><a href="user/nonmember">비회원입장</a></li>
-	</ul>
-      
+	<!-- 바로 user/main으로 포워딩 하도록 해주는 코드 -->
+	<!-- 전자 정보 프레임워크가 만들어주는 프로젝트에서 index.jsp에 보면 이런 코드가 존재합니다. -->
+	<jsp:forward page="user/main"></jsp:forward>      
 </body>
 </html>

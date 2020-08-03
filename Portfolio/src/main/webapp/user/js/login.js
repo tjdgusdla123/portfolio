@@ -17,7 +17,7 @@ window.addEventListener("load", function(event){
 		} 
 		
 		if (memberpassword.value.trim().length < 1) {
-			msg.innerHTML += '비밀번호는 필수 입력입니다.<br/>';
+			msg.innerHTML = '비밀번호는 필수 입력입니다.<br/>';
 			flag = true;
 		} 
 		

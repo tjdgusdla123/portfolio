@@ -18,20 +18,20 @@ public class StoreMenuServiceImpl implements StoreMenuService {
 @Autowired
 private StoreMenuDAO storeMenuDAO;
 
-@Override
-public void allstoremenu(HttpServletRequest request, HttpServletResponse response) {
+//@Override
+//public void allstoremenu(HttpServletRequest request, HttpServletResponse response) {
 	//1.파라미터 읽기​
 	//2.필요한 처리 수행	​
 	//3.DAO 메소드의 매개변수 생성	​
 	//4.DAO 메소드를 호출
-	List<StoreMenu> list = storeMenuDAO.allstoremenu();
+	//List<StoreMenu> list = storeMenuDAO.allstoremenu();
 	//5.결과를 가공	​
 	//6.결과를 저장 - REST API Server의 경우는 request에 저장
 	
-	request.setAttribute("list", list);
-	System.out.println("서비Impl-allstoremenu list"+list);
+	//request.setAttribute("list", list);
+	//System.out.println("서비Impl-allstoremenu list"+list);
 
-	}
+	//}
 
 @Override
 public void detailstoremenu(HttpServletRequest request, HttpServletResponse response) {
@@ -48,6 +48,30 @@ public void detailstoremenu(HttpServletRequest request, HttpServletResponse resp
 	//결과를 저장
 	request.setAttribute("storemenu", storemenu);
 	System.out.println("serviceImpl.detailstoremenu menuname변수:"+menucode);
+}
+
+@Override
+public void getMenu(HttpServletRequest request, HttpServletResponse response) {
+	
+	String menuSection =request.getParameter("menusection");
+	String storeNickname =request.getParameter("storenickname");
+	System.out.println("StoreMenuServiceImpl.getmenu.menuSection 파라미터 : " + menuSection);
+	System.out.println("StoreMenuServiceImpl.getmenu.storeNickname 파라미터 : " + storeNickname);
+	
+	StoreMenu storeMenu =new StoreMenu();
+	storeMenu.setMenuSection(menuSection);
+	storeMenu.setStoreNickname(storeNickname);
+	System.out.println("StoreMenuServiceImpl.getmenu.storeMenu : " + storeMenu);
+	System.out.println("StoreMenuServiceImpl.getmenu-storeMenu-storeNickname : " + storeNickname);;
+	System.out.println("StoreMenuServiceImpl.getmenu-storeMenu-menuSection : " + menuSection);
+
+	List<StoreMenu> list =storeMenuDAO.getMenu(storeMenu);
+
+	
+	System.out.println("StoreMenuServiceImpl.getmenu.list : " + list);
+	
+	request.setAttribute("list", list);
+	
 }
 	
 }

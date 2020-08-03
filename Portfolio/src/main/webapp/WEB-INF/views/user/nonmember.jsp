@@ -15,14 +15,14 @@
                 
                 
                 
-                  <input type="button" value="전체메뉴"  id="allmenubtn"/> 
+                
               <input type="button" value="메인메뉴"  id="mainmenubtn"/>  
-             <input type="button" value="주류/음료"  id="drinkmenubtn"/>
-             <input type="button" value="사이드메뉴"  id="sidemenubtn"/>
+             <input type="button" value="음료"  id="drinkmenubtn"/>
+             <input type="button" value="주류"  id="alcoholbtn"/>
               <input type="button" value="회원가입"  id="joinbtn"/>
              <input type="button" value="로그인"  id="loginbtn"/>
              <input type="button" value="메인으로"  id="mainbtn"/>
-                                
+               <div id="menudata"></div>
                               
                                 
 </body>
