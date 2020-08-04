@@ -12,7 +12,7 @@ public class StoreMemberBoardDAO {
 	private SqlSession sqlSession;
 	
 	public void memberBoard(StoreMemberBoard storeMemberBoard) {
-		sqlSession.insert("storememberboard.memberboard");
+		sqlSession.insert("storememberboard.memberboard",storeMemberBoard);
 	}
 	
 

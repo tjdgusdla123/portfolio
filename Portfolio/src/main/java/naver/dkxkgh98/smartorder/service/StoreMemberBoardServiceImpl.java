@@ -22,11 +22,13 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 	 String boardContent = request.getParameter("boardContent");
 	 StoreMember storeMember =(StoreMember)request.getSession().getAttribute("storeMember");
 	 String memberNickname = request.getParameter("boardTitle");
+	 String boardFile = request.getParameter("boardFile");
 	 
-	 System.out.println("serviceImpl-memberBoard-boardTitle"+boardTitle);
-	 System.out.println("serviceImpl-memberBoard-boardContent"+boardContent);
-	 System.out.println("serviceImpl-memberBoard-storeMember"+storeMember);
-	 System.out.println("serviceImpl-memberBoard-memberNickname"+memberNickname);
+	 System.out.println("serviceImpl-memberBoard-boardTitle:"+boardTitle);
+	 System.out.println("serviceImpl-memberBoard-boardContent:"+boardContent);
+	 System.out.println("serviceImpl-memberBoard-storeMember:"+storeMember);
+	 System.out.println("serviceImpl-memberBoard-memberNickname:"+memberNickname);
+	 System.out.println("serviceImpl-memberBoard-boardFile:"+boardFile);
 	 
 	
 	 if(boardTitle.length()==0) {
@@ -43,6 +45,10 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
      storeMemberBoard.setBoardContent(boardContent);
      storeMemberBoard.setMemberNickname(memberNickname);
      storeMemberBoard.setBoardIp(boardIp);
+     storeMemberBoard.setBoardFile(boardFile);
+ 
+     // DAO의 메소드를 호출
+     storeMemberBoardDao.memberBoard(storeMemberBoard);
      
 
 	}

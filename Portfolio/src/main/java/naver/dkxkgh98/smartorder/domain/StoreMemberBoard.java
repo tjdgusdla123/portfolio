@@ -13,7 +13,7 @@ public class StoreMemberBoard {
 	private Date    boardUpdatedate;//수정일 
 	private Integer boardReadcnt;//조회수 
 	private String  boardIp;//작성한 곳의 아이피 
-	private String  boardFile;//첨부파
+	private String  boardFile;//첨부파일  
 	private String  memberNickname;//맴버 닉네임 
 
 }

@@ -45,9 +45,5 @@ public class StoreMemberPageController {
 		System.out.println("페이지controller도착-member");
 		return "user/member";
 }
-	@RequestMapping(value ="board", method = RequestMethod.GET)
-	public String board() {
-		System.out.println("페이지controller도착-게시판"); 
-		return "user/board";
-}	
+
 }
