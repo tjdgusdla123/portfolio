@@ -22,6 +22,8 @@
               <input type="button" value="회원가입"  id="joinbtn"/>
              <input type="button" value="로그인"  id="loginbtn"/>
              <input type="button" value="메인으로"  id="mainbtn"/>
+              <input type="button" value="게시판"  id="nonmemberboardbtn"/>
+             
                <div id="menudata"></div>
                               
                                 

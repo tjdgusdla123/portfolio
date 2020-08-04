@@ -27,7 +27,7 @@
     
     </select>
     
-    <!-- 이메 중복체크 SQL -->
+    <!-- 이메일 중복체크 SQL -->
     <select id="memberemailcheck" parameterType="java.lang.String" resultType="java.lang.String">
     select memberemail
     from storemembertbl
@@ -43,14 +43,15 @@
   
 
 
-	<!-- storemembertbl 테이블의 데이터를 전부 가져오는 SQL -->
+	<!-- storemembertbl 테이블의 데이터를 전부 가져오는 SQL
 	<select id="allstoremember"
 		resultType="naver.dkxkgh98.smartorder.domain.StoreMember">
 		select membernickname, memberemail,memberphonenumber
 		from storemembertbl
 	</select>
+	-->
 
-	<!--storemembertbl 상세보기를 -->
+	<!--storemembertbl 상세보기를 
 	<select id="detailstoremember" parameterType="java.lang.String"
 		resultType="naver.dkxkgh98.smartorder.domain.StoreMember">
 		select
@@ -58,7 +59,7 @@
 		from storemembertbl
 		where membernickname=#{membernickname}
 	</select>
-
+-->
 	
 </mapper>
   

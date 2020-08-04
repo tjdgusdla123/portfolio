@@ -36,7 +36,7 @@ window.addEventListener("load", function(event){
 			 var map = JSON.parse(e.target.responseText);
 			 if(map.result == true){
 			 alert("로그인성공");
-			 	location.href = "nonmember";
+			 	location.href = "member";
 			 }else{
 			 alert("로그인실패");
 			 	msg.innerHTML = "잘못된 닉네임이거나  비밀번호가 틀렸습니다.";

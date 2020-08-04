@@ -6,6 +6,9 @@ window.addEventListener("load", function(event){
 	var alcoholbtn = document.getElementById("alcoholbtn");
 	var drinkmenubtn = document.getElementById("drinkmenubtn");
 	var mainmenubtn = document.getElementById("mainmenubtn");
+
+	var boardbtn = document.getElementById("nonmemberboardbtn");
+	
     
 	//버튼을 눌렀을 때 페이지 이동
 	mainbtn.addEventListener("click", function(event){
@@ -17,6 +20,10 @@ window.addEventListener("load", function(event){
 		});
 	
 		joinbtn.addEventListener("click", function(event){
+		location.href="join";
+		});
+	
+		nonmemberboardbtn.addEventListener("click", function(event){
 		location.href="join";
 		});
 		
@@ -42,6 +49,7 @@ window.addEventListener("load", function(event){
 				  "<th width='80'>"+'메뉴명'+"</th>"+
 				  "<th width='300'>"+'설명'+"</th>"+
 				  "<th width='100'>"+'가격'+"</th>"+
+				   
 				  "</tr>"
 							 
 							 

@@ -20,7 +20,7 @@
 		where menucode=#{menucode}
 	
 	</select>
-	
+	<!-- ajax -->
 	<select id="getmenu" parameterType="naver.dkxkgh98.smartorder.domain.StoreMenu"
 		resultType="naver.dkxkgh98.smartorder.domain.StoreMenu">
 		select menuname,menuinfo,menuprice

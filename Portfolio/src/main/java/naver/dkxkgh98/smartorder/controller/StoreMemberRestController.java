@@ -24,7 +24,7 @@ public class StoreMemberRestController {
 	private StoreMemberService storeMemberService;
 
 	//회원가입을 처리하는 메소드
-	@RequestMapping(value="user/join",method=RequestMethod.POST)
+	@RequestMapping(value="join",method=RequestMethod.POST)
 	public Map<String,Object> join(HttpServletRequest request, HttpServletResponse response){
 		//서비스의 메소드를 호출
 		Map<String,Object> map = storeMemberService.join(request, response);
@@ -32,7 +32,7 @@ public class StoreMemberRestController {
 		return map;
 		
 	}
-	@RequestMapping(value="user/login", method=RequestMethod.POST)
+	@RequestMapping(value="login", method=RequestMethod.POST)
 	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("StoreMemberRestController.login 데이터 오는지 확인" );
 		//서비스의 메소드를 호출
