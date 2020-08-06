@@ -20,7 +20,7 @@ public class StoreMemberPageController {
 	private StoreMemberService storeMemberService;
 	@Autowired
 	private StoreMenuService storeMenuService;
-	@RequestMapping(value = {"/", "index.html","user/main"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "index.html","main"}, method = RequestMethod.GET)
     public String home(HttpServletRequest request, HttpServletResponse response) {
 	   //서비스의 메소드를 호출
 		System.out.println("컨트롤 홈 도착");

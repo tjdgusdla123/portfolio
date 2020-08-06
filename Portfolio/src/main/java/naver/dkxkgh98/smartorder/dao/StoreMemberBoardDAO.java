@@ -11,8 +11,10 @@ public class StoreMemberBoardDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public void memberBoard(StoreMemberBoard storeMemberBoard) {
-		sqlSession.insert("storememberboard.memberboard",storeMemberBoard);
+	//게시글 작성
+	public int memberBoard(StoreMemberBoard storeMemberBoard) {
+		System.out.println("StoreMemberBoardDAO-storeMemberBoard:"+storeMemberBoard);
+		return sqlSession.insert("storememberboard.memberboard",storeMemberBoard);
 	}
 	
 

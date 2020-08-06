@@ -1,8 +1,13 @@
 package naver.dkxkgh98.smartorder.service;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 
 public interface StoreMemberBoardService {
-
-	public void memberBoard(HttpServletRequest request);
+    //게시물 글쓰기 
+	public  Map<String,Object> memberBoard(MultipartHttpServletRequest request, HttpServletResponse response);
 }

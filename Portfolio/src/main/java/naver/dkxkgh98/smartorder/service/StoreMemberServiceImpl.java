@@ -110,12 +110,20 @@ public class StoreMemberServiceImpl implements StoreMemberService {
 			// String image ="default.jpg";
 			// 파일을 선택한 경우에만 파일을 서버에 복사
 			/*
-			 * if(mf.isempty()==false) { //저장할 디렉토리 경로를 생성 String uploadPath =
-			 * request.getServletContext().getRealPath("/user/profile"); //파일 이름을 랜덤하게 설정
-			 * image =UUID.randomUUID()+mf.getOriginalFilename(); //실제로 저장될 경로 만들기
-			 * uploadPath = uploadpath +"/"+ image; //파일 객체 생성 File file =new
-			 * File(uploadPath); FileOutputStream fos = null; try { //mf 의내용을 file에 복사 fos
-			 * =new FileOutputStream(file); fos.write(mf.getBytes()); } catch (Exception e)
+			 * if(mf.isempty()==false) { 
+			 * //저장할 디렉토리 경로를 생성 
+			 * String uploadPath =request.getServletContext().getRealPath("/user/profile");
+			 * //파일 이름을 랜덤하게 설정
+			 * image =UUID.randomUUID()+mf.getOriginalFilename(); 
+			 * //실제로 저장될 경로 만들기
+			 * uploadPath = uploadpath +"/"+ image;
+			 *  //파일 객체 생성 
+			 *  File file =new File(uploadPath); 
+			 *  FileOutputStream fos = null; try { 
+			    //mf 의내용을 file에 복사
+			 *  fos=new FileOutputStream(file); fos.write(mf.getBytes()); 
+			 *  } catch (Exception e)
+			 * 
 			 * { System.out.println(e.getMessage()); e.printStackTrace(); } }
 			 */
 		}
