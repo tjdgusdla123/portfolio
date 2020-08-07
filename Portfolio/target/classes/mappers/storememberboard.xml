@@ -8,7 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 	values(memberboardseq.nextval, #{boardTitle}, #{boardContent}, #{boardIp}, #{memberNickname},#{boardFile})
 </insert>
 
-<select id="memberboardlist">
+<select id="memberboardlist" resultType="naver.dkxkgh98.smartorder.domain.StoreMemberBoard">
+  select boardbno,boardtitle,boardregdate,boardreadcnt,membernickname 
+  from  storememberboard u, storememberboard b
+  where u.membernickname = b.memmembernickname
+  order boardupdatedate desc
 
 </select>
 </mapper>                            

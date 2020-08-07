@@ -1,6 +1,8 @@
 package naver.dkxkgh98.smartorder;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -39,29 +41,29 @@ public class StoreMemberTest {
 
 	//}
 
-	@Test
-	public void ConnectTest() {
-		try {
-			System.out.println("Test connectTest:"+dataSource.getConnection());
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			
-			e.printStackTrace();
-		}
-	}
+//	@Test
+//	public void ConnectTest() {
+//		try {
+//			System.out.println("Test connectTest:"+dataSource.getConnection());
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			
+//			e.printStackTrace();
+//		}
+//	}
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@Test
-	public void sqlTest() {
-		//email 중복검사
-		//존재하는 이메일이므로 이메일이 출력
-		System.out.println(sqlSession.selectOne("storemember.memberemailcheck", "dkxkgh91@naver.com"));
-		//없는 이메일이므로 null 출력
-		System.out.println(sqlSession.selectOne("storemember.memberemailcheck", "dkxkgh9112@naver.com"));
-		
-	}
-	
+//	@Test
+//	public void sqlTest() {
+//		//email 중복검사
+//		//존재하는 이메일이므로 이메일이 출력
+//		System.out.println(sqlSession.selectOne("storemember.memberemailcheck", "dkxkgh91@naver.com"));
+//		//없는 이메일이므로 null 출력
+//		System.out.println(sqlSession.selectOne("storemember.memberemailcheck", "dkxkgh9112@naver.com"));
+//		
+//	}
+//	
 //	@Test
 //	public void sqlTest2() {
 //		//email 중복검사
@@ -84,17 +86,26 @@ public class StoreMemberTest {
 //		System.out.println(sqlSession.insert("storemember.join",storemember));
 //	}
 	
+//	@Test
+//	public void memberBoardTest() {
+//		StoreMemberBoard  storeMemberBoard =new StoreMemberBoard();
+//		storeMemberBoard.setBoardTitle("처음 작성 합니다.");
+//		storeMemberBoard.setBoardContent("sdasdasd");
+//		storeMemberBoard.setBoardIp("12313");
+//		storeMemberBoard.setMemberNickname("test2");
+//		storeMemberBoard.setBoardFile("default.png");
+//
+//System.out.println(sqlSession.insert("storememberboard.memberboard",storeMemberBoard));
+//	}
+	
 	@Test
-	public void memberBoardTest() {
-		StoreMemberBoard  storeMemberBoard =new StoreMemberBoard();
-		storeMemberBoard.setBoardTitle("처음 작성 합니다.");
-		storeMemberBoard.setBoardContent("sdasdasd");
-		storeMemberBoard.setBoardIp("12313");
-		storeMemberBoard.setMemberNickname("test2");
-		storeMemberBoard.setBoardFile("default.png");
-
-System.out.println(sqlSession.insert("storememberboard.memberboard",storeMemberBoard));
+	public void memberBoardWriteTest() {
+		System.out.println(sqlSession.selectList("storememberboard.memberboardwrite"));
+	
+		
 	}
-	
-	
 }
+
+
+
+

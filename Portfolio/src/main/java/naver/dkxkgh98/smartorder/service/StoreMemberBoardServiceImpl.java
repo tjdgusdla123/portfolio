@@ -4,10 +4,15 @@ package naver.dkxkgh98.smartorder.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Calendar;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +25,15 @@ import naver.dkxkgh98.smartorder.dao.StoreMemberBoardDAO;
 import naver.dkxkgh98.smartorder.domain.StoreMember;
 import naver.dkxkgh98.smartorder.domain.StoreMemberBoard;
 
+
+
 @Service
 public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 	@Autowired
 	private StoreMemberBoardDAO  storeMemberBoardDao;
+	
 
+    
 	//게시판 글 작성 
 	@Override
 	public Map<String, Object> memberBoard(MultipartHttpServletRequest request , HttpServletResponse response) {
@@ -99,8 +108,37 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
     return map;
 
 	}
+	
+	
+    //게시글 목록  
+	@Override
+	 public List<StoreMemberBoard> memberBoardList() {
+		List<StoreMemberBoard> list = storeMemberBoardDao.memberBoardList();
+		Calendar cal =Calendar.getInstance();
+		Date today = new Date(cal.getTimeInMillis());
+		for(StoreMemberBoard storeMemberBoard :list) {
+			if(today.toString().equals(storeMemberBoard.getBoardRegdate().substring(0,10))) {
+				storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().substring(11));
+				
+			}else {
+				storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().substring(0, 10));
+			}
+		}
+		
+		
+		
+		
+		return list;
+		
+		
+		
+	}
+
+
+	
+	}
 
 
 
 
-}
+

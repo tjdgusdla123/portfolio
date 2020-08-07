@@ -1,5 +1,7 @@
 package naver.dkxkgh98.smartorder.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,5 +19,12 @@ public class StoreMemberBoardDAO {
 		return sqlSession.insert("storememberboard.memberboardwrite",storeMemberBoard);
 	}
 	
-
+   //게시글 목록 
+	public List<StoreMemberBoard>memberBoardList(){
+		
+		return sqlSession.selectList("storememberboard.memberboardwrite");
+		
+		
+	}
+	
 }
