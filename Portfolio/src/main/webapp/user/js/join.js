@@ -112,13 +112,9 @@ window.addEventListener("load", function(event){
 			//결과를 가지고 다음 행동을 작성
 			if(obj.result == true){
 				location.href = "../";
-			}else{
-				if(obj.memberemailcheck == false){
-					msg.innerHTML = "사용 불가능한 이메일";
-				}
-				if(obj.membernicknamecheck == false){
-					msg.innerHTML = "이미 사용 중인 별명";
-				}
+			}else{				
+				msg.innerHTML = "작성 실패";
+				
 			}
 		});
 		

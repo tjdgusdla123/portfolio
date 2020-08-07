@@ -16,14 +16,19 @@ import naver.dkxkgh98.smartorder.service.StoreMemberBoardService;
 public class StoreMemberBoardRestController {
 	
 	@Autowired
+	
 	private StoreMemberBoardService storeMemberBoardService;
 	
 	//게시물작성 
 	@RequestMapping(value ="boardwrite", method = RequestMethod.POST)
 	public Map<String,Object> memberBoard(MultipartHttpServletRequest request, HttpServletResponse response){
-		//서비스 메소드 호출 
-	    Map<String,Object> map =storeMemberBoardService.memberBoard(request, response);
-	    System.out.println("StoreMemberBoardController-memberBoard-도착-map:"+map);
+		//서비스 메소드 호출
+		System.out.println("StoreMemberBoardController-memberBoard-도착-map");
+		//request.getSession().getAttribute("storememberinfo");
+		//System.out.println("StoreMemberBoardController-memberBoard-도착 후 : " + request.getSession().getAttribute("storememberinfo"));
+		Map<String,Object> map = storeMemberBoardService.memberBoard(request, response);
+		
+		System.out.println("StoreMemberBoardController-memberBoard-도착-map:"+map);
 		return map;
 		
 	}

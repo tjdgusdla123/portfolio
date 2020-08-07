@@ -32,24 +32,20 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("result", false);
     //파라미터 읽기  
-    String boardBno = request.getParameter("boardbno");
     String boardTitle = request.getParameter("boardtitle");
     String boardContent = request.getParameter("boardcontent");
+    //StoreMember storeMember = (StoreMember)request.getSession().getAttribute("storememberinfo");
+	//System.out.println("serviceImpl-memberBoard-memberBoard-storeMember 파라미터 읽기:"+storeMember);
+    //String memberNickname = storeMember.getMembernickname();
     String memberNickname = request.getParameter("membernickname");
     MultipartFile boardFile =request.getFile("boardfile");
    
-    System.out.println("serviceImpl-memberBoard-boardBno:"+boardBno);
-    System.out.println("serviceImpl-memberBoard-boardTitle:"+boardTitle);
-	 System.out.println("serviceImpl-memberBoard-boardContent:"+boardContent);
-	 System.out.println("serviceImpl-memberBoard-memberNickname:"+memberNickname);
-	 System.out.println("serviceImpl-memberBoard-boardFile:"+boardFile);
     
-	 if(boardTitle.length()==0) {
-		 boardTitle= "무제";
-	 }
-	 if(boardContent.length() == 0) {
-		 boardContent= "냉무";
-	 }
+    System.out.println("serviceImpl-memberBoard-boardTitle 파라미터 읽기:"+boardTitle);
+	 System.out.println("serviceImpl-memberBoard-boardContent 파라미터 읽기:"+boardContent);
+	 //System.out.println("serviceImpl-memberBoard-memberNickname 파라미터 읽기:"+memberNickname);
+	 System.out.println("serviceImpl-memberBoard-boardFile 파라미터 읽기:"+boardFile);
+	    
 	 
 	
 	 
@@ -58,14 +54,22 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 		 UUID uemail = UUID.randomUUID();
 		String filename = boardFile.getOriginalFilename();
 	
-	   try {
+	   
 			if(filename.length()>0) {
 				filename = uemail + "_" + filename;
 				//저장된 파일 경로 만들기
 			String filepath  = uploadPath + "\\" + filename;
 			//파일 업로드
 	        File file = new File(filepath);
-				boardFile.transferTo(file);
+				try {
+					boardFile.transferTo(file);
+				} catch (IllegalStateException e) {
+					 System.out.println("파일 업로드 예외"+e.getMessage());
+					e.printStackTrace();
+				} catch (IOException e) {
+					 System.out.println("파일 업로드 예외2"+e.getMessage());
+					e.printStackTrace();
+				}
 		
 	        
 			}else {
@@ -83,7 +87,7 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardTitle(boardTitle):"+boardTitle);
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardFile(filename):"+filename);
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardContent(boardContent):"+boardContent);
-		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setMemberNickname(memberNickname):"+memberNickname);
+		     //System.out.println("serviceImpl-memberBoard-storeMemberBoard.setMemberNickname(memberNickname):"+memberNickname);
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardIp(boardIp):"+boardIp);
 		    
 		     int row = storeMemberBoardDao.memberBoard(storeMemberBoard);
@@ -92,11 +96,6 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 					map.put("result", true);
 				}
 			
-			 
-	   }catch (Exception e){
-		   System.out.println("서비스 파일 예외:"+e.getMessage());
-		   
-	   }
     return map;
 
 	}

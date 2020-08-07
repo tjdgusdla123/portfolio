@@ -13,6 +13,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
 import naver.dkxkgh98.smartorder.domain.StoreMember;
+import naver.dkxkgh98.smartorder.domain.StoreMemberBoard;
 
 //Spring에서 JUnit4 라이브러를 사용하기 위한 설정
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -61,28 +62,39 @@ public class StoreMemberTest {
 		
 	}
 	
-	@Test
-	public void sqlTest2() {
-		//email 중복검사
-		//존재하는 닉네임이므로 이메일이 출력
-		System.out.println(sqlSession.selectOne("storemember.membernicknamecheck", "배짱"));
-		//없는 닉네임이므로 null 출력
-		System.out.println(sqlSession.selectOne("storemember.membernicknamecheck", "임짱"));
-		
-		//데이터 삽입 확인
-		StoreMember storemember =new StoreMember();
-		storemember.setMemberemail("tjdgusdla123@naven.com");
-		storemember.setMemberislogin("");
-		storemember.setMemberlastlogindate(new Date());
-		storemember.setMembernickname("임짱");
-		storemember.setMemberpassword("1234");
-		storemember.setMemberphonenumber("01015153636");
-		storemember.setMemberisremove("");
-		
-		//삽입 삭제 갱신은 정수를 리턴하는데 리턴되는 값은 영향받는 행의 개수
-		System.out.println(sqlSession.insert("storemember.join",storemember));
-	}
+//	@Test
+//	public void sqlTest2() {
+//		//email 중복검사
+//		//존재하는 닉네임이므로 이메일이 출력
+//		System.out.println(sqlSession.selectOne("storemember.membernicknamecheck", "배짱"));
+//		//없는 닉네임이므로 null 출력
+//		System.out.println(sqlSession.selectOne("storemember.membernicknamecheck", "임짱"));
+//		
+//		//데이터 삽입 확인
+//		StoreMember storemember =new StoreMember();
+//		storemember.setMemberemail("tjdgusdla123@naven.com");
+//		storemember.setMemberislogin("");
+//		storemember.setMemberlastlogindate(new Date());
+//		storemember.setMembernickname("임짱");
+//		storemember.setMemberpassword("1234");
+//		storemember.setMemberphonenumber("01015153636");
+//		storemember.setMemberisremove("");
+//		
+//		//삽입 삭제 갱신은 정수를 리턴하는데 리턴되는 값은 영향받는 행의 개수
+//		System.out.println(sqlSession.insert("storemember.join",storemember));
+//	}
 	
+	@Test
+	public void memberBoardTest() {
+		StoreMemberBoard  storeMemberBoard =new StoreMemberBoard();
+		storeMemberBoard.setBoardTitle("처음 작성 합니다.");
+		storeMemberBoard.setBoardContent("sdasdasd");
+		storeMemberBoard.setBoardIp("12313");
+		storeMemberBoard.setMemberNickname("test2");
+		storeMemberBoard.setBoardFile("default.png");
+
+System.out.println(sqlSession.insert("storememberboard.memberboard",storeMemberBoard));
+	}
 	
 	
 }

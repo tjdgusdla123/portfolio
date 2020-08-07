@@ -25,7 +25,7 @@ public class StoreMemberRestController {
 
 	@Autowired
 	private StoreMemberService storeMemberService;
-	@Autowired
+	
 
 	//회원가입을 처리하는 메소드
 	@RequestMapping(value="join",method=RequestMethod.POST)
@@ -40,8 +40,9 @@ public class StoreMemberRestController {
 	public Map<String, Object> login(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("StoreMemberRestController.login 데이터 오는지 확인" );
 		//서비스의 메소드를 호출
-		Map<String, Object> result =  storeMemberService.login(request, response);
-		System.out.println("StoreMemberRestController.login.result : " + result  );
+		Map<String, Object> result = storeMemberService.login(request, response);
+		//System.out.println("StoreMemberRestController.login.result : " + result  );
+		
 		return result;
 	}
 

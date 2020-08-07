@@ -3,7 +3,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 <mapper namespace="storememberboard">
 
 <insert id="memberboard" parameterType="naver.dkxkgh98.smartorder.domain.StoreMemberBoard">
+
 	insert into storememberboard(boardbno, boardtitle, boardcontent, boardip, membernickname,boardfile)
-	values(memberboardseq.nextval, #{boardtitle}, #{boardcontent}, #{boardip}, #{membernickname},#{boardfile})
+	values(memberboardseq.nextval, #{boardTitle}, #{boardContent}, #{boardIp}, #{memberNickname},#{boardFile})
 </insert>
-</mapper>
+</mapper>                            

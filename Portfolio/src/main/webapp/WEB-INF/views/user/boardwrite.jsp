@@ -10,38 +10,39 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/user/css/boardwrite.css">
 </head>
 <body>
-	<form name="boardform" enctype="multipart/form-data">
+	<form enctype="multipart/form-data" id="boardform" method="post" >
         <h1 align="center">게시글 작성</h1> 
         	<div align="center" id="msg"></div>  
        <ul>	
      
       <li> 
      <label for="boardtitle">제목</label>
-      <input name='boardtitle' id="boardtitle"> <br/>
+      <input name='boardtitle' id="boardtitle"  placeholder="제목을 입력해주세요."> <br/>
      </li>
       
       <li>
      <label for="boardcontents">내용</label>
-     <textarea id="boardcontents" neme="boardcontents" rows="5"></textarea><br/>
-     </li>
+     <textarea id="boardcontent" name="boardcontent" rows="5" placeholder="좋은글은 좋은 사람을 만든다."></textarea><br/>
+     </li>         
      
       <li>
      <label for="membernickname">작성자</label> 
-     <input id="membernickname" name='membernickname' value="${storememberboard.membernickname}" readonly="readonly"><br/>
+     <input id="membernickname" name="membernickname" value="${storememberinfo.membernickname}" readonly="readonly"><br/>
      </li>
-          <li>   
-        <p></p><img id="img" width="100" height="100" border="1"/><br/>
-       </li>
-      
+     
+      <p></p> <img id="img" width="100"height="100" border="1" /> <br />
         <li>
-        <input type="file" id="boardfile" name="boardfile" accept=".jpg,.jpeg,.gif,.png"/><br/>
+        <input type="file" id="boardfile" name="boardfile" accept="image/*"/><br/>
           </li>
-          <div id="boardfilemsg" >  </div> 
-          
-           <input type="button" id="writebtn">작성완료</button>
+        
+          <li>
+           <input type="button" value="작성완료" id="writebtn"></button>
            <button type="reset" id="resetbtn">다시작성</button>
-           <input type="button" value="메인으로"  id="mainbtn"/>
+           <input type="button" value="메인으로"  id="mainbtn" />
+           </li>
            </ul> 
 	</form>
+	
+	
 </body>
 </html>
