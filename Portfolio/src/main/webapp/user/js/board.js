@@ -11,6 +11,9 @@ window.addEventListener("load", function(event){
     var mainbtn = document.getElementById("mainbtn");
     var img = document.getElementById("img");
     
+    	mainbtn.addEventListener("click", function(event){
+		location.href="../";
+    });
     	//이미지 미리보기
 	boardfile.addEventListener("change", function(event){
 		//선택한 파일이 있다면
