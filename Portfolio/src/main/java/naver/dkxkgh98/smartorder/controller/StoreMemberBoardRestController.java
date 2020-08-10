@@ -27,9 +27,9 @@ public class StoreMemberBoardRestController {
 		//request.getSession().getAttribute("storememberinfo");
 		//System.out.println("StoreMemberBoardController-memberBoard-도착 후 : " + request.getSession().getAttribute("storememberinfo"));
 		Map<String,Object> map = storeMemberBoardService.memberBoard(request, response);
-		
 		//System.out.println("StoreMemberBoardController-memberBoard-도착-map:"+map);
 		return map;
 		
 	}
+	
 }

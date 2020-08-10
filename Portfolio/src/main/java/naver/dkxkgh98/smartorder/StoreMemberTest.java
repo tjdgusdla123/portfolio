@@ -100,7 +100,7 @@ public class StoreMemberTest {
 	
 	@Test
 	public void memberBoardWriteTest() {
-		System.out.println(sqlSession.selectList("storememberboard.memberboardwrite"));
+		System.out.println(sqlSession.selectList("storememberboard.memberboardlist"));
 	
 		
 	}

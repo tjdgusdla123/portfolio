@@ -27,7 +27,7 @@ return sqlSession.selectOne("storemenu.detailstoremenu", menucode);
 }
 
 public List<StoreMenu> getMenu(StoreMenu storeMenu) { 
-	System.out.println("dao 전체데이터 가져오기 "+storeMenu); 	
+	System.out.println("StoreMenudao 데이터 가져오기 "+storeMenu); 	
 	 return sqlSession.selectList("storemenu.getmenu",storeMenu);
   
 }

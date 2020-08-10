@@ -21,8 +21,8 @@ public class StoreMemberBoardDAO {
 	
    //게시글 목록 
 	public List<StoreMemberBoard>memberBoardList(){
-		
-		return sqlSession.selectList("storememberboard.memberboardwrite");
+		System.out.println("dao 전체데이터 가져오기 "+sqlSession);
+		return sqlSession.selectList("storememberboard.memberboardlist");
 		
 		
 	}

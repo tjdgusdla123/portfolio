@@ -9,10 +9,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-ma
 </insert>
 
 <select id="memberboardlist" resultType="naver.dkxkgh98.smartorder.domain.StoreMemberBoard">
-  select boardbno,boardtitle,boardregdate,boardreadcnt,membernickname 
+ <!--
+   select boardbno,boardtitle,boardregdate,boardreadcnt,u.membernickname 
   from  storememberboard u, storememberboard b
-  where u.membernickname = b.memmembernickname
-  order boardupdatedate desc
-
+  where u.membernickname = b.membernickname
+  order by boardupdatedate desc
+-->
+ select boardbno,boardtitle,boardregdate,boardreadcnt,u.membernickname
+  from  storemembertbl u, storememberboard b
+  where  u.membernickname = b.membernickname
+  order by boardupdatedate desc
 </select>
+
 </mapper>                            

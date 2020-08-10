@@ -4,9 +4,9 @@ package naver.dkxkgh98.smartorder.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Date;
-import java.util.Calendar;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -108,35 +108,44 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
     return map;
 
 	}
-	
-	
-    //게시글 목록  
+
+
+	   //게시글 목록  
 	@Override
-	 public List<StoreMemberBoard> memberBoardList() {
-		List<StoreMemberBoard> list = storeMemberBoardDao.memberBoardList();
-		Calendar cal =Calendar.getInstance();
-		Date today = new Date(cal.getTimeInMillis());
-		for(StoreMemberBoard storeMemberBoard :list) {
-			if(today.toString().equals(storeMemberBoard.getBoardRegdate().substring(0,10))) {
-				storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().substring(11));
+	public List<StoreMemberBoard> memberBoardList() {
+			List<StoreMemberBoard> list = storeMemberBoardDao.memberBoardList();
+			Calendar cal =Calendar.getInstance();
+			Date today = new Date(cal.getTimeInMillis());
+			System.out.println("serviceImpl-memberBoard-memberBoardList-cal:"+cal);
+			System.out.println("serviceImpl-memberBoard-memberBoardList-today:"+today);
+			
+			for(StoreMemberBoard storeMemberBoard :list) {
+				System.out.println(today.toString());
+				System.out.println(storeMemberBoard.getBoardRegdate().toString().substring(0,10));
 				
-			}else {
-				storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().substring(0, 10));
+				if(today.toString().equals(storeMemberBoard.getBoardRegdate().toString().substring(0,10))) {
+					storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().toString().substring(11));
+					
+				}else {
+					storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().toString().substring(0, 10));
+				}
 			}
+			
+
+			return list;
+			
+			
+			
 		}
-		
-		
-		
-		
-		return list;
-		
-		
-		
-	}
+	
+	
+}
+ 
+
 
 
 	
-	}
+	
 
 
 
