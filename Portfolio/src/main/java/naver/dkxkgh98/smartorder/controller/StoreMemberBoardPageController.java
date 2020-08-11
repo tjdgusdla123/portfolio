@@ -2,6 +2,9 @@ package naver.dkxkgh98.smartorder.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,13 +34,24 @@ public class StoreMemberBoardPageController {
 		return "user/boardwrite";
 }	
 	
-	//게시판 목록
+//	@RequestMapping(value ="boardlist", method = RequestMethod.GET)
+//   public String memberBoardList(HttpServletRequest request, HttpServletResponse response) {
+//		System.out.println("페이지controller도착-list"); 
+//		storeMemberBoardService.memberBoardList(request, response);
+//	return "user/boardlist";
+//	
+//		
+//}
 	@RequestMapping(value ="boardlist", method = RequestMethod.GET)
-	public String memberBoardList(Model model) {
-		System.out.println("페이지controller게시판 목록 도착  ");
-		List<StoreMemberBoard> list = storeMemberBoardService.memberBoardList();
-		model.addAttribute("list", list);
+	   public String memberBoardList(Model model) {
+			System.out.println("페이지controller도착-list");
+
+			List<StoreMemberBoard> list = storeMemberBoardService.memberBoardList();
+			model.addAttribute("list",list);
 		return "user/boardlist";
+		
+			
 	}
-	
+		
+
 }

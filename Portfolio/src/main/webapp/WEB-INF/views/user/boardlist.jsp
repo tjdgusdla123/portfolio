@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,7 @@
 </head>
 <body>
 	<div class="box-body">
-		<table class="bordered">
+		<table class="bordered" border="1">
 			<tr>
 				<th width="11%">글번호</th>
 				<th width="46%">제목</th>
@@ -17,13 +18,13 @@
 				<th width="11%">조회수</th>
 			</tr>
 			<c:forEach var="storememberboard" items="${list}">
-				<tr>
-					<td align="right">${storememberboard.boardbno}&nbsp;</td>
-					<td>&nbsp; ${storememberboard.boardtitle}</td>
-					<td>&nbsp;${storememberboard.membernickname}</td>
-					<td>&nbsp; ${storememberboard.boarddispdate}</td>
+				<tr>                                
+					<td align="right">${storememberboard.boardBno}&nbsp;</td>
+					<td>&nbsp; ${storememberboard.boardTitle}</td>
+					<td>&nbsp;${storememberboard.memberNickname}</td>
+					<td>&nbsp; ${storememberboard.boardDispdate}</td>
 					<td align="right"><span class="badge bg-blue">
-							${storememberboard.boardreadcnt}</span>&nbsp;</td>
+							${storememberboard.boardReadcnt}</span>&nbsp;</td>
 				</tr>
 			</c:forEach>
 		</table>

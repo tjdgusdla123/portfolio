@@ -110,33 +110,43 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 	}
 
 
+
+//	@Override
+//	public void memberBoardList(HttpServletRequest request, HttpServletResponse response) {
+//		List<StoreMemberBoard> list = storeMemberBoardDao.memberBoardList();
+//		
+//		request.setAttribute("list", list);
+//		System.out.println("ServiceImpl-memberBoardList-list:"+list);
+//	}
+
+
 	   //게시글 목록  
-	@Override
+    @Override
 	public List<StoreMemberBoard> memberBoardList() {
 			List<StoreMemberBoard> list = storeMemberBoardDao.memberBoardList();
 			Calendar cal =Calendar.getInstance();
 			Date today = new Date(cal.getTimeInMillis());
 			System.out.println("serviceImpl-memberBoard-memberBoardList-cal:"+cal);
 			System.out.println("serviceImpl-memberBoard-memberBoardList-today:"+today);
-			
-			for(StoreMemberBoard storeMemberBoard :list) {
+		
+	for(StoreMemberBoard storeMemberBoard :list) {
 				System.out.println(today.toString());
 				System.out.println(storeMemberBoard.getBoardRegdate().toString().substring(0,10));
-				
-				if(today.toString().equals(storeMemberBoard.getBoardRegdate().toString().substring(0,10))) {
+			
+			if(today.toString().equals(storeMemberBoard.getBoardRegdate().toString().substring(0,10))) {
 					storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().toString().substring(11));
-					
+				
 				}else {
-					storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().toString().substring(0, 10));
+				storeMemberBoard.setBoardDispdate(storeMemberBoard.getBoardRegdate().toString().substring(0, 10));
 				}
 			}
-			
+	System.out.println("serviceImpl-memberBoard-memberBoardList-list:"+list);
 
 			return list;
 			
 			
 			
-		}
+	}
 	
 	
 }
