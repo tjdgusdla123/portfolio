@@ -4,6 +4,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 
+     <!-- web.xml설정후 프로젝트를 선택하고 마우스 오른쪽 [Maven] – [Update Project]-->
 	<!-- 애플리케이션이 시작될 때나 종료될 때 또는 세션이 만들어질 때 세션이 소멸 될 때 등의 이벤트가 발생하면 호출되는 객체의 
 		클래스를 설정하는 태그가 listener 
 		 웹 애플리케이션이 시작될 때 수행할 내용을 가지는 파일에 경로 설정 - 이 파일에 모든 곳에서 사용할 bean을 생성 웹 
@@ -35,7 +36,10 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
-	<!-- 파라미터 인코딩 필터 처리 -->
+	<!-- 파라미터 인코딩 필터 처리(웹 페이지나 모바일기기에서 데이터를 요청할 때 같이 보내는 파라미터에
+	한글이 포함된 경우 코딩 을위해서 설정:ServiceImpl에서 파라미터를 읽을 때 한글이 깨집니다
+	=>필터: ) -->
+	
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

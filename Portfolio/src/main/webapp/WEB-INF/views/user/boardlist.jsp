@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div class="box-body">
-		<table class="table table-bordered table-hover">
+		<table class="bordered">
 			<tr>
 				<th width="11%">글번호</th>
 				<th width="46%">제목</th>

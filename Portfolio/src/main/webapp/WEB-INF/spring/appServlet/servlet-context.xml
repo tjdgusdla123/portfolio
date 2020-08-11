@@ -8,6 +8,11 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--  URL 패턴에 따른 설정 파일인 webapp/WEB-INF/spring/appServlet 
+    디렉토리의 servlet-context.xml 파일에 추가 – Controller가 처리하지 못하는 요청은
+    WAS가 처리하도록 하고 파일 업로드를 위한 설정을 추가-->
+
+
 	<!-- Controller가 처리하지 못하는 요청을 WAS가 처리하도록 해주는 설정 -->
 	<default-servlet-handler />
 
