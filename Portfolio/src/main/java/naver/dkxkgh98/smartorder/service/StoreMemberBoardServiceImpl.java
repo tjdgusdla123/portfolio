@@ -124,6 +124,7 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
     @Override
 	public List<StoreMemberBoard> memberBoardList() {
 			List<StoreMemberBoard> list = storeMemberBoardDao.memberBoardList();
+			System.out.println("serviceImpl-memberBoard-memberBoardList-list:"+list);
 			Calendar cal =Calendar.getInstance();
 			Date today = new Date(cal.getTimeInMillis());
 			System.out.println("serviceImpl-memberBoard-memberBoardList-cal:"+cal);
