@@ -26,5 +26,7 @@ public class StoreMemberBoardDAO {
 		
 		
 	}
+	//게시글 상세보기 
+  
 	
 }

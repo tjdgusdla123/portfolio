@@ -27,9 +27,8 @@ public class StoreMemberTest {
 	//데이터베이스 연견을 확일할 때 주입
 	@Autowired
 	private DataSource dataSource;
-	
 
-    
+	
 	//@Test
 	//public void mybatisTest() {
 	// System.out.println(sqlSession);
@@ -97,13 +96,16 @@ public class StoreMemberTest {
 //
 //System.out.println(sqlSession.insert("storememberboard.memberboard",storeMemberBoard));
 //	}
-	
-	@Test
+		@Test
 	public void memberBoardWriteTest() {
 		System.out.println(sqlSession.selectList("storememberboard.memberboardlist"));
 	
-		
+		System.out.println(sqlSession.selectOne("storememberboard.memberboarddetail",1).toString());
 	}
+	
+		
+		
+	
 }
 
 

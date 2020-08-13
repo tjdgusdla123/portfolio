@@ -19,8 +19,8 @@
 			</tr>
 			<c:forEach var="storememberboard" items="${list}">
 				<tr>                                
-					<td align="right">${storememberboard.boardBno}&nbsp;</td>
-					<td>&nbsp; ${storememberboard.boardTitle}</td>
+					<td align="right">"${storememberboard.boardBno}&nbsp;</td>
+					<td>&nbsp;<a href="detailboard/${storememberboard.boardBno}"> ${storememberboard.boardTitle}</td></a>
 					<td>&nbsp;${storememberboard.memberNickname}</td>
 					<td>&nbsp; ${storememberboard.boardDispdate}</td>
 					<td align="right"><span class="badge bg-blue">
