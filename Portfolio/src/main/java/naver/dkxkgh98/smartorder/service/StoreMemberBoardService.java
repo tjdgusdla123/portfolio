@@ -20,6 +20,7 @@ public interface StoreMemberBoardService {
 	//게시글 목록
 	//public void memberBoardList(HttpServletRequest request, HttpServletResponse response);
 	
+	public StoreMemberBoard memberBoardDetail(int boardBno);
 	
 	
 }

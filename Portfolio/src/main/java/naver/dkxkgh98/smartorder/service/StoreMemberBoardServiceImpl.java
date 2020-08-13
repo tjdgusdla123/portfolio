@@ -151,6 +151,33 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 
 
 
+	@Override
+	public StoreMemberBoard memberBoardDetail(int boardBno) {
+		//
+		//@Override
+		//public void detailstoremenu(HttpServletRequest request, HttpServletResponse response) {
+//			//요청 주소의 마지막 부분을 가져오기
+//			//localhost/detailstoremenu/menucode
+//			String requestURI = request.getRequestURI();
+//			String [] ar = requestURI.split("/");
+//			String menucode = ar[ar.length - 1];	
+//			System.out.println("serviceImpl.detailstoremenu requestURI:" + requestURI);
+//			System.out.println("serviceImpl.detailstoremenu ar:" + ar);
+//			System.out.println("serviceImpl.detailstoremenu menuname변수:" + menucode);
+//			//DAO의 메소드를 호출
+//			StoreMenu storemenu = storeMenuDAO.detailstoremenu(menucode);
+//			//결과를 저장
+//			request.setAttribute("storemenu", storemenu);
+//			System.out.println("serviceImpl.detailstoremenu menuname변수:"+menucode);
+		//}
+		
+		storeMemberBoardDao.memberboardupdatereadcnt(boardBno);
+		
+		return storeMemberBoardDao.memberBoardDetail(boardBno);
+	}
+
+
+
 
 	
 }

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -25,12 +26,12 @@ public class StoreMemberBoardPageController {
 	//게시판 메인 
 	@RequestMapping(value ="board", method = RequestMethod.GET)
 	public String board() {
-		//System.out.println("페이지controller도착-게시판"); 
+		System.out.println("페이지controller도착-게시판"); 
 		return "user/boardmain";
 }	//게시글 작성
 	@RequestMapping(value ="boardwrite", method = RequestMethod.GET)
 	public String boardwrite() {
-		//System.out.println("페이지controller도착-글쓰기"); 
+		System.out.println("페이지controller도착-글쓰기"); 
 		return "user/boardwrite";
 }	
 	
@@ -44,13 +45,18 @@ public class StoreMemberBoardPageController {
 //}
 	@RequestMapping(value ="boardlist", method = RequestMethod.GET)
 	   public String memberBoardList(Model model) {
-			////System.out.println("페이지controller도착-list");
+			System.out.println("페이지controller도착-list");
 			List<StoreMemberBoard> list = storeMemberBoardService.memberBoardList();
 			model.addAttribute("list",list);
-		return "user/boardlist";
-		
+		return "user/boardlist";	
 			
 	}
+	@RequestMapping(value ="memberBoardDetail{boardBno}", method = RequestMethod.GET)
+	  
+	public String memberBoardDetail(@PathVariable("boardBno") int boardBno, Model model) {
+		model.addAttribute("storeMemberBoard",storeMemberBoardService.memberBoardDetail(boardBno));
+		return "user/memberBoardDetail";
 		
+	}
 
 }
