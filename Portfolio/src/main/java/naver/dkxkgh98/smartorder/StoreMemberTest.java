@@ -14,6 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import naver.dkxkgh98.smartorder.dao.StoreMemberBoardDAO;
 import naver.dkxkgh98.smartorder.domain.StoreMember;
 import naver.dkxkgh98.smartorder.domain.StoreMemberBoard;
 
@@ -95,17 +96,34 @@ public class StoreMemberTest {
 //		storeMemberBoard.setBoardFile("default.png");
 //
 //System.out.println(sqlSession.insert("storememberboard.memberboard",storeMemberBoard));
-//	}
+////	}
 		@Test
 	public void memberBoardWriteTest() {
-		System.out.println(sqlSession.selectList("storememberboard.memberboardlist"));
-	
-		System.out.println(sqlSession.selectOne("storememberboard.memberboarddetail",1).toString());
+		//게시글 목록 
+			//System.out.println(sqlSession.selectList("storememberboard.memberboardlist"));
+	   //게시글 상세보기 
+		//System.out.println(sqlSession.selectOne("storememberboard.memberboarddetail",1).toString());
+			
+			//글번호를 가지고 조회수를 1증가시키는 sql 테스트를 했는데 오류가 남  근대 DB에는 반영이됨 뭐가 문제일까?
+		//System.out.println(sqlSession.selectOne("storememberboard.memberboardupdatereadcnt",1).toString());
+
 	}
 	
+	//DAO 테스트
+	@Autowired
+	private StoreMemberBoardDAO storeMemberBoardDao;
+	@Test
+	public void daoTest() {
+		//DAO 확인
+		//System.out.println(storeMemberBoardDao);
+		//상세보기 테스트 
+		//System.out.println(storeMemberBoardDao.memberBoardDetail(1));
+		//글번호로 조회수 +1하기 테스트 
+		//System.out.println(storeMemberBoardDao.memberboardupdatereadcnt(1));
+	}
+	   
 		
 		
-	
 }
 
 

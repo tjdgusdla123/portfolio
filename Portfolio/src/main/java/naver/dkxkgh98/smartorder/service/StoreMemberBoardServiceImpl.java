@@ -148,7 +148,10 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 			
 			
 	}
-	
+
+
+
+
 	
 }
  

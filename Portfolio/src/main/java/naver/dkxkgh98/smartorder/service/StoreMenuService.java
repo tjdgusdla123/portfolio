@@ -15,4 +15,5 @@ public void detailstoremenu(HttpServletRequest request, HttpServletResponse resp
 //전체 데이터를 가저오는 메소드
 public void getMenu(HttpServletRequest request, HttpServletResponse response);
 
+
 }
