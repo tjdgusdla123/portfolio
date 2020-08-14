@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -62,7 +63,7 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 		// 파일 이름 만들기
 		 UUID uemail = UUID.randomUUID();
 		String filename = boardFile.getOriginalFilename();
-	
+		      
 	   
 			if(filename.length()>0) {
 				filename = uemail + "_" + filename;
@@ -150,30 +151,47 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 	}
 
 
-
-	@Override
-	public StoreMemberBoard memberBoardDetail(int boardBno) {
-		//
-		//@Override
-		//public void detailstoremenu(HttpServletRequest request, HttpServletResponse response) {
+//게시물 상세보기 선생님 버전으로하다가 오류 발생 다른 방법으로 하기위해서 주석 처리 
+//	@Override
+//	public StoreMemberBoard memberBoardDetail(int boardBno) {
+//		
+//	
 //			//요청 주소의 마지막 부분을 가져오기
 //			//localhost/detailstoremenu/menucode
 //			String requestURI = request.getRequestURI();
 //			String [] ar = requestURI.split("/");
-//			String menucode = ar[ar.length - 1];	
+//			String boardBno = ar[ar.length - 1];	
 //			System.out.println("serviceImpl.detailstoremenu requestURI:" + requestURI);
 //			System.out.println("serviceImpl.detailstoremenu ar:" + ar);
 //			System.out.println("serviceImpl.detailstoremenu menuname변수:" + menucode);
 //			//DAO의 메소드를 호출
-//			StoreMenu storemenu = storeMenuDAO.detailstoremenu(menucode);
+//			StoreMemberBoard storeMemberBoard = StoreMemberBoard.memberBoardDetail(boardBno);
 //			//결과를 저장
-//			request.setAttribute("storemenu", storemenu);
+//		Model model = new Model();
+//		model.setAttribute("storemenu", storemenu);
+//		
 //			System.out.println("serviceImpl.detailstoremenu menuname변수:"+menucode);
-		//}
+//		
+//		
+//		storeMemberBoardDao.memberboardupdatereadcnt(boardBno);
+//		
+//		return storeMemberBoardDao.memberBoardDetail(boardBno);
+//	}
+
+
+
+	@Override
+	public StoreMemberBoard memberBoardDetail(int boardBno) {
+    	
+	 storeMemberBoardDao.memberBoardUpdateReadcnt(boardBno);
+	 System.out.println("serviceImpl.memberBoardUpdateReadcnt storeMemberBoardDao:"+ storeMemberBoardDao); 
+
+	 System.out.println("serviceImpl.memberBoardDetail boardBno변수:"+boardBno);
+
+		return storeMemberBoardDao.memberBoardDetail(boardBno);	 
+	
+	   
 		
-		storeMemberBoardDao.memberboardupdatereadcnt(boardBno);
-		
-		return storeMemberBoardDao.memberBoardDetail(boardBno);
 	}
 
 

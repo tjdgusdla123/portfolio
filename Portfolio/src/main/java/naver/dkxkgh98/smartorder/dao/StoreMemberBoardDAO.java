@@ -30,10 +30,11 @@ public class StoreMemberBoardDAO {
     public StoreMemberBoard memberBoardDetail(int boardBno) {
     	System.out.println("dao 상세보기 "+sqlSession);
     	return sqlSession.selectOne("storememberboard.memberboarddetail",boardBno);
-    	
+   	
     }
-    public int memberboardupdatereadcnt(int boardBno) {
-    	return sqlSession.update("storememberboard.memberboardupdatereadcnt",boardBno);
+   
+    public void memberBoardUpdateReadcnt(int boardBno) {
+    	sqlSession.update("storememberboard.memberboardupdatereadcnt",boardBno);
     }
 	
 }

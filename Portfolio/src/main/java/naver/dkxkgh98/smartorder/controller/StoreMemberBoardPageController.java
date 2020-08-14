@@ -50,12 +50,14 @@ public class StoreMemberBoardPageController {
 			model.addAttribute("list",list);
 		return "user/boardlist";	
 			
-	}
-	@RequestMapping(value ="memberBoardDetail{boardBno}", method = RequestMethod.GET)
-	  
-	public String memberBoardDetail(@PathVariable("boardBno") int boardBno, Model model) {
+	}	
+	//게시판 상세보기 
+	@RequestMapping(value ="boarddetail/{boardBno}", method = RequestMethod.GET)
+	public String memberBoardDetail(@PathVariable("boardBno") int boardBno,Model model) {
+		//서비스 메소드 호출 
+		System.out.println("페이지controller-memberBoardDetail도착-상세보기");
 		model.addAttribute("storeMemberBoard",storeMemberBoardService.memberBoardDetail(boardBno));
-		return "user/memberBoardDetail";
+		return "user/boarddetail";
 		
 	}
 
