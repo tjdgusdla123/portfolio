@@ -3,6 +3,7 @@ package naver.dkxkgh98.smartorder.service;
 
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import java.util.Calendar;
@@ -48,54 +49,76 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 	//System.out.println("serviceImpl-memberBoard-memberBoard-storeMember 파라미터 읽기:"+storeMember);
     //String memberNickname = storeMember.getMembernickname();
     String memberNickname = request.getParameter("membernickname");
-    MultipartFile boardFile =request.getFile("boardfile");
+    MultipartFile imge =request.getFile("boardfile");
    
     
     System.out.println("serviceImpl-memberBoard-boardTitle 파라미터 읽기:"+boardTitle);
 	 System.out.println("serviceImpl-memberBoard-boardContent 파라미터 읽기:"+boardContent);
 	 //System.out.println("serviceImpl-memberBoard-memberNickname 파라미터 읽기:"+memberNickname);
-	 System.out.println("serviceImpl-memberBoard-boardFile 파라미터 읽기:"+boardFile);
+	 System.out.println("serviceImpl-memberBoard-boardFile 파라미터 읽기:"+imge);
 	    
 	 
-	
-	 
-	  String uploadPath = request.getServletContext().getRealPath("/user/profile");
-		// 파일 이름 만들기
-		 UUID uemail = UUID.randomUUID();
-		String filename = boardFile.getOriginalFilename();
-		      
-	   
-			if(filename.length()>0) {
-				filename = uemail + "_" + filename;
-				//저장된 파일 경로 만들기
-			String filepath  = uploadPath + "\\" + filename;
-			//파일 업로드
-	        File file = new File(filepath);
-				try {
-					boardFile.transferTo(file);
-				} catch (IllegalStateException e) {
-					 System.out.println("파일 업로드 예외"+e.getMessage());
-					e.printStackTrace();
-				} catch (IOException e) {
-					 System.out.println("파일 업로드 예외2"+e.getMessage());
-					e.printStackTrace();
+	//기본값이 없는 경우는 null
+			String boardFile = "default.jpg";
+			
+			//파일이 존재하는 경우에만 
+			if(imge != null && imge.isEmpty() == false) {
+				//파일을 업로드할 디렉토리 경로를 설정
+				String filePath = 
+						request.getServletContext()
+						.getRealPath("/img");
+				//파일이름 생성 - 중복된 파일이름을 업로드 할까봐서 수정
+				boardFile = 
+					UUID.randomUUID() + 
+					imge.getOriginalFilename();
+				//파일 업로드 하기 
+				File f = new File(filePath + "/" + boardFile);
+				try(FileOutputStream fos = 
+						new FileOutputStream(f)){
+					fos.write(boardFile.getBytes());
+					fos.flush();
+				}catch(Exception e) {
+					System.out.println("파일 업로드 예외:" + 
+						e.getMessage());
 				}
-		
-	        
-			}else {
-				filename="default.png";
+//	 
+//	  String uploadPath = request.getServletContext().getRealPath("/img");
+//		// 파일 이름 만들기
+//		 UUID uemail = UUID.randomUUID();
+//		String filename = boardFile.getOriginalFilename();
+//		      
+//	   
+//			if(filename.length()>0) {
+//				filename = uemail + "_" + filename;
+//				//저장된 파일 경로 만들기
+//			String filepath  = uploadPath + "\\" + filename;
+//			//파일 업로드
+//	        File file = new File(filepath);
+//				try {
+//					boardFile.transferTo(file);
+//				} catch (IllegalStateException e) {
+//					 System.out.println("파일 업로드 예외"+e.getMessage());
+//					e.printStackTrace();
+//				} catch (IOException e) {
+//					 System.out.println("파일 업로드 예외2"+e.getMessage());
+//					e.printStackTrace();
+//				}
+//		
+//	        
+//			}else {
+//				filename="default.png";
 			}
 			//필요한 데이터를 생성 
 			 StoreMemberBoard storeMemberBoard = new StoreMemberBoard();
 		     String boardIp =request.getRemoteAddr();
-		     storeMemberBoard.setBoardFile(filename);
+		     storeMemberBoard.setBoardFile(boardFile);
 		     storeMemberBoard.setBoardTitle(boardTitle);
 		     storeMemberBoard.setBoardContent(boardContent);
 		     storeMemberBoard.setMemberNickname(memberNickname);
 		     storeMemberBoard.setBoardIp(boardIp);
 		    
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardTitle(boardTitle):"+boardTitle);
-		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardFile(filename):"+filename);
+		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardFile(boardfile):"+boardFile);
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardContent(boardContent):"+boardContent);
 		     //System.out.println("serviceImpl-memberBoard-storeMemberBoard.setMemberNickname(memberNickname):"+memberNickname);
 		     System.out.println("serviceImpl-memberBoard-storeMemberBoard.setBoardIp(boardIp):"+boardIp);
