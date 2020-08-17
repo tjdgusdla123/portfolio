@@ -64,22 +64,16 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 			//파일이 존재하는 경우에만 
 			if(imge != null && imge.isEmpty() == false) {
 				//파일을 업로드할 디렉토리 경로를 설정
-				String filePath = 
-						request.getServletContext()
-						.getRealPath("/img");
+				String filePath = request.getServletContext().getRealPath("/img");
 				//파일이름 생성 - 중복된 파일이름을 업로드 할까봐서 수정
-				boardFile = 
-					UUID.randomUUID() + 
-					imge.getOriginalFilename();
+				boardFile = UUID.randomUUID() + imge.getOriginalFilename();
 				//파일 업로드 하기 
 				File f = new File(filePath + "/" + boardFile);
-				try(FileOutputStream fos = 
-						new FileOutputStream(f)){
-					fos.write(boardFile.getBytes());
-					fos.flush();
+				try(FileOutputStream fos = new FileOutputStream(f)){
+					fos.write(boardFile.getBytes());fos.flush();
 				}catch(Exception e) {
 					System.out.println("파일 업로드 예외:" + 
-						e.getMessage());
+				   e.getMessage());
 				}
 //	 
 //	  String uploadPath = request.getServletContext().getRealPath("/img");
@@ -174,51 +168,12 @@ public class StoreMemberBoardServiceImpl implements StoreMemberBoardService {
 	}
 
 
-//게시물 상세보기 선생님 버전으로하다가 오류 발생 다른 방법으로 하기위해서 주석 처리 
-//	@Override
-//	public StoreMemberBoard memberBoardDetail(int boardBno) {
-//		
-//	
-//			//요청 주소의 마지막 부분을 가져오기
-//			//localhost/detailstoremenu/menucode
-//			String requestURI = request.getRequestURI();
-//			String [] ar = requestURI.split("/");
-//			String boardBno = ar[ar.length - 1];	
-//			System.out.println("serviceImpl.detailstoremenu requestURI:" + requestURI);
-//			System.out.println("serviceImpl.detailstoremenu ar:" + ar);
-//			System.out.println("serviceImpl.detailstoremenu menuname변수:" + menucode);
-//			//DAO의 메소드를 호출
-//			StoreMemberBoard storeMemberBoard = StoreMemberBoard.memberBoardDetail(boardBno);
-//			//결과를 저장
-//		Model model = new Model();
-//		model.setAttribute("storemenu", storemenu);
-//		
-//			System.out.println("serviceImpl.detailstoremenu menuname변수:"+menucode);
-//		
-//		
-//		storeMemberBoardDao.memberboardupdatereadcnt(boardBno);
-//		
-//		return storeMemberBoardDao.memberBoardDetail(boardBno);
-//	}
 
-
-
-	@Override
-	public StoreMemberBoard memberBoardDetail(int boardBno) {
-    	
-	 storeMemberBoardDao.memberBoardUpdateReadcnt(boardBno);
-	 System.out.println("serviceImpl.memberBoardUpdateReadcnt storeMemberBoardDao:"+ storeMemberBoardDao); 
-
-	 System.out.println("serviceImpl.memberBoardDetail boardBno변수:"+boardBno);
-
-		return storeMemberBoardDao.memberBoardDetail(boardBno);	 
+@Override
+public void memberBoardDetail(HttpServletRequest request) {
 	
-	   
-		
-	}
-
-
-
+	
+}
 
 	
 }

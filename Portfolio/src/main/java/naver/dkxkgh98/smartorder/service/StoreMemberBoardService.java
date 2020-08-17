@@ -22,9 +22,11 @@ public interface StoreMemberBoardService {
 	//public void memberBoardList(HttpServletRequest request, HttpServletResponse response);
 	
 	//게시글 상세보기 
-	public StoreMemberBoard memberBoardDetail(int boardBno);
+	public void  memberBoardDetail(HttpServletRequest request);
 
 
 	
 	
 }
+
+
