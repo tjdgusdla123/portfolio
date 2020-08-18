@@ -24,11 +24,22 @@ import naver.dkxkgh98.smartorder.domain.StoreMemberBoard;
 //프레임워크마다 설정파일의 경로가 다르므로 web.xml에 설정된 내용을 확인하고
 @WebAppConfiguration
 @ContextConfiguration(locations = { "file:src/main/webapp/WEB-INF/spring/**/*.xml" })
-public class StoreMemberTest {
+public class DataSourceTest {
 	//데이터베이스 연견을 확일할 때 주입
 	@Autowired
 	private DataSource dataSource;
-	   		
+	
+	@Autowired
+	private SqlSession sqlSession;
+
+	@Test
+	public void sqlSessionTest()throws Exception{
+		//데이터베이스 연결 테스트
+		System.out.println(dataSource.getConnection().toString());
+		
+		//MyBatis 설정 테스트 
+		System.out.println(sqlSession.toString());
+	}
 }
 
 

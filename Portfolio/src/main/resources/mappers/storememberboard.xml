@@ -11,17 +11,18 @@
    <sql id="search">
 		<if test="searchtype != null">
 			<if test="searchtype == ''.toString()"></if>
-			<if test="searchtype == 'itemname'.toString()"> where lower(boardtitle)  like '%' || #{keyword} || '%' </if>
-			<if test="searchtype == 'description'.toString()"> where  lower(membernickname) like '%' || #{keyword} || '%' </if>
-			<if test="searchtype == 'both'.toString()"> where lower(boardtitle)  like '%' || #{keyword} || '%' or lower(membernickname)  like '%' || #{keyword} || '%' </if>
+			<if test="searchtype == 'boardtitle'.toString()"> where lower(boardtitle)  like '%' || #{keyword} || '%' </if>
+			<if test="searchtype == 'membernickname'.toString()"> where  lower(membernickname) like '%' || #{keyword} || '%' </if>
+			<if test="searchtype == ''.toString()"> where lower(boardtitle)  like '%' || #{keyword} || '%' or lower(membernickname)  like '%' || #{keyword} || '%' </if>
 		</if>
 		<if test="searchtype == null">
 		</if>
 	</sql>
   
   <!-- 데이터의 개수를 가져오는 SQL -->
-  <select id="boardcount" resultType="java.lang.Integer" parameterType="java.util.Map">
+  <select id="memberboardcount" resultType="java.lang.Integer" parameterType="java.util.Map">
   select count(*) from storememberboard
+   <include refid="search"></include>
   </select>
  
   <!-- 시작 번호와 종료 번호를 받아서 번호에 해당되는 데이터만 가져오는 SQL -->
@@ -39,12 +40,12 @@
 	values(memberboardseq.nextval, #{boardTitle}, #{boardContent}, #{boardIp}, #{memberNickname},#{boardFile})
 </insert>
 
-<!-- boardbno를 이용해서 1개의 데이터를 찾아오는 sql -->
-<select id="memberboardlist" resultType="naver.dkxkgh98.smartorder.domain.StoreMemberBoard" parameterType="java.lang.Integer">
+<!-- boardbno를 이용해서 1개의 데이터를 찾아오는 sql-->
+<select id="memberboarddetail" resultType="naver.dkxkgh98.smartorder.domain.StoreMemberBoard" parameterType="java.lang.Integer">
 select boardbno,boardtitle,boardcontent,boardregdate,boardupdatedate,boardreadcnt,boardip,boardfile,membernickname
 from storememberboard where boardbno=#{boardbno}
 </select>
-
+ 
 <!-- 글 번호를 가지고 조회수 1증가시키는 sql -->
 <update id="memberboardupdatereadcnt" parameterType="java.lang.Integer">
 update storememberboard
