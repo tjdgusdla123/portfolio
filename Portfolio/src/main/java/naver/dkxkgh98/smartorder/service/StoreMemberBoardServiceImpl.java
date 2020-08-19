@@ -126,17 +126,20 @@ public void memberBoardDetail(HttpServletRequest request, HttpServletResponse re
 @Override
 @Transactional
 public void memberBoardWrite(MultipartHttpServletRequest request, HttpServletResponse response) {
-//파라미터 읽기
+	Map<String, Object> map = new HashMap<>(); 
+
+	//파라미터 읽기
 	String boardTitle = request.getParameter("boardtitle");
 	String boardContent = request.getParameter("boardcontent");
 	String memberNickname = request.getParameter("membernickname");
+	
 	String boardFile = "default.jpg";
 	MultipartFile image =request.getFile("boardfile");
 	 System.out.println("ServiceImpl-memberBoardWrite-boardTitle:"+boardTitle);
-	 System.out.println("ServiceImpl-memberBoardWrite-boardTitle:"+boardContent);
-	 System.out.println("ServiceImpl-memberBoardWrite-boardTitle:"+memberNickname);
-	 System.out.println("ServiceImpl-memberBoardWrite-boardTitle:"+boardFile);
-	 System.out.println("ServiceImpl-memberBoardWrite-boardTitle:"+image);
+	 System.out.println("ServiceImpl-memberBoardWrite-boardContent:"+boardContent);
+	 System.out.println("ServiceImpl-memberBoardWrite-memberNickname:"+memberNickname);
+	 System.out.println("ServiceImpl-memberBoardWrite-boardFile:"+boardFile);
+	 System.out.println("ServiceImpl-memberBoardWrite-image:"+image);
 	 
 	 //업로드 하는 파일이 존재하면 새로운 파일이름을 만들고 파일 업로드
 	 if(image != null && image.isEmpty() == false) {
@@ -160,6 +163,35 @@ public void memberBoardWrite(MultipartHttpServletRequest request, HttpServletRes
 		 }
 		 
 	 }
+	// DAO 파라미터 만들기
+	 String boardIp = request.getRemoteAddr();
+	 StoreMemberBoard storeMemberBoard = new StoreMemberBoard();
+	 storeMemberBoard.setBoardTitle(boardTitle);
+	 storeMemberBoard.setBoardContent(boardContent);
+	 storeMemberBoard.setMemberNickname(memberNickname);
+	 storeMemberBoard.setBoardFile(boardFile);
+	 storeMemberBoard.setBoardIp(boardIp);
+	 //System.out.println("서비스 확인 중입니다1.");
+	 System.out.println("ServiceImpl2-memberBoardWrite-boardTitle:"+boardTitle);
+	 System.out.println("ServiceImpl2-memberBoardWrite-boardContent:"+boardContent);
+	 System.out.println("ServiceImpl2-memberBoardWrite-memberNickname:"+memberNickname);
+	 System.out.println("ServiceImpl2-memberBoardWrite-boardFile:"+boardFile);
+	 System.out.println("ServiceImpl2-memberBoardWrite-boardIp:"+boardIp);
+	 
+	 
+	 //DAO 메소드를 호출하고 결과를 확인해서 memberBoardWrite라는 이름으로 결과를 저장
+	 int row = storeMemberBoardDao.memberBoardWrite(storeMemberBoard);
+	System.out.println("서비스 확인 중입니다2."+row);
+	 map = new HashMap<String,Object>();
+	if(row > 0) {
+		map.put("result",true);
+		System.out.println("ServiceImpl2-memberBoardWrite-map-true:"+map);
+	}else {
+		map.put("result",false);
+		System.out.println("ServiceImpl2-memberBoardWrite-map-false:"+map);
+	}
+	System.out.println("ServiceImpl2-memberBoardWrite-result,map:"+map);
+	 request.setAttribute("result",map);	 
 	 
 	 
 	 

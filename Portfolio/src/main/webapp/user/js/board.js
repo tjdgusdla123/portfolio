@@ -29,17 +29,18 @@ window.addEventListener("load", function(event){
 		}
 	});
 	//작성 버튼을 눌렀을 때 처리 
+	
 	writebtn.addEventListener("click", function(event){
 	
 	//ajax요청 
-	var url = "boardwrite";
+	var url = "memberboardwrite";
 	
 	
 	//ajax 객체를 생성
 	var request = new XMLHttpRequest();
-	
+
     //요청을 생성
-	request.open('post', url, true);
+	request.open("post", url, true);
 	
 	//폼데이터 생성
 	var formData = new FormData(boardform);
@@ -58,7 +59,6 @@ window.addEventListener("load", function(event){
 			if(obj.result == true){
 				location.href = "boardlist";
 			}else{
-	
 				msg.innerHTML = "작성 실패 ";
 				
 				}
