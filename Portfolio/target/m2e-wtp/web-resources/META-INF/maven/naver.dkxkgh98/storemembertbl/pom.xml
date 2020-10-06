@@ -123,13 +123,14 @@
 			<version>1.3.2</version>
 		</dependency>
 
+		
 		<!-- lombok - DTO를 편리하게 만드는 의존성 -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.8</version>
 		</dependency>
-
+		
 		<!--spring-Test를 하고자 하면 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
