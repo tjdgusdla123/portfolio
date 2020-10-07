@@ -18,11 +18,11 @@ public class StoreMemberBoardDAO {
 	//게시글 작성
 	public int storeMemberBoardWrite(StoreMemberBoard storeMemberBoard) {
 		System.out.println("StoreMemberBoardDAO.storeMemberBoardWrite 도착 " + storeMemberBoard);
-		return sqlSession.insert("storeMemberBoard.write",storeMemberBoard);
+		return sqlSession.insert("storeMemberBoard.memberboardwrite",storeMemberBoard);
 	}
 	
    //게시글 목록 
-	public List<StoreMemberBoard>storeMemberBoardList(){
+	public List<StoreMemberBoard> storeMemberBoardList(){
 		System.out.println("StoreMemberBoardDAO.storeMemberBoardList 도착 ");
 		return sqlSession.selectList("storeMemberBoard.list");
 		
@@ -31,7 +31,7 @@ public class StoreMemberBoardDAO {
 	//게시글 상세보기 
     public StoreMemberBoard storeMemberBoardDetail(int boardBno) {
 		System.out.println("StoreMemberBoardDAO.storeMemberBoardDetail 도착 ");
-    	return sqlSession.selectOne("storeMemberBoard.detail",boardBno);
+    	return sqlSession.selectOne("storeMemberBoard.memberboarddetail",boardBno);
    	
     }
    

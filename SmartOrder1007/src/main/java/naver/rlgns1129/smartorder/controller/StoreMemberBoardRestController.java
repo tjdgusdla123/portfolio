@@ -26,7 +26,7 @@ public class StoreMemberBoardRestController {
 	@RequestMapping(value ="board/write", method = RequestMethod.POST)
 	public Map<String,Object> storeMemberBoardWrite(MultipartHttpServletRequest request, HttpServletResponse response){
 		//서비스 메소드 호출
-		System.out.println("StoreMemberBoardRestController.storeMemberBoardList 도착");
+		System.out.println("StoreMemberBoardRestController.storeMemberBoardWrite 도착");
 		Map<String,Object> map = storeMemberBoardService.storeMemberBoardWrite(request, response);
 		
 		return map;
